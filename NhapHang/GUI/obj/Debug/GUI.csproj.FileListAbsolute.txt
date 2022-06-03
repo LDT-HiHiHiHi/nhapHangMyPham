@@ -1,0 +1,38 @@
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\obj\Debug\GUI.frmChiTietPN.resources
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\obj\Debug\GUI.frmLapPhieu.resources
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\obj\Debug\GUI.frmMain.resources
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\obj\Debug\GUI.frmPhieuNhap.resources
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\obj\Debug\GUI.frmSanPham.resources
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\obj\Debug\GUI.Properties.Resources.resources
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\bin\Debug\GUI.exe.config
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\bin\Debug\GUI.exe
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\bin\Debug\GUI.pdb
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\bin\Debug\BUS.dll
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\bin\Debug\DTO.dll
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\bin\Debug\DAL.dll
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\bin\Debug\BUS.pdb
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\bin\Debug\DTO.pdb
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\bin\Debug\DAL.pdb
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\obj\Debug\GUI.exe
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\obj\Debug\GUI.pdb
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\bin\Debug\GUI.exe.config
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.exe
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.pdb
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\bin\Debug\GUI.exe
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\bin\Debug\GUI.pdb
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\bin\Debug\BUS.dll
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\bin\Debug\DTO.dll
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\bin\Debug\DAL.dll
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\bin\Debug\BUS.pdb
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\bin\Debug\DTO.pdb
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\bin\Debug\DAL.pdb
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.frmChiTietPN.resources
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.frmLapPhieu.resources
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.frmMain.resources
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.frmPhieuNhap.resources
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.frmSanPham.resources
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.Properties.Resources.resources
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache

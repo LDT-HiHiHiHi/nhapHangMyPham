@@ -1,0 +1,5 @@
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\DTO\bin\Debug\DTO.dll.config
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\DTO\bin\Debug\DTO.dll
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\DTO\bin\Debug\DTO.pdb
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\DTO\obj\Debug\DTO.dll
+C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\DTO\obj\Debug\DTO.pdb
