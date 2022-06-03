@@ -25,6 +25,7 @@ namespace GUI
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
+            //kiểm tra rôcng
             if (string.IsNullOrEmpty(txtMaPN.Text))
             {
                 Program.AlertMessage("Vui lòng nhập mã phiếu nhập");
@@ -32,6 +33,7 @@ namespace GUI
                 return;
             }
 
+            //Kiểm tra trùng
             string idpn = txtMaPN.Text;
             if (!bus_pn.check_PK(idpn))
             {

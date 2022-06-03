@@ -33,31 +33,11 @@
         <elementListCompartment Id="ecfc56bf-105b-48b5-8a74-41abc19b8e5e" absoluteBounds="2.14, 3.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4 : 5.64829702604167); (1.425 : 5.64829702604167); (1.425 : 2.7); (2.9999995 : 2.7); (2.9999995 : 3)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.875 : 4.125); (4.875 : 3.5624995); (4.125 : 3.5624995)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/QlyMyPhamDataContext/SANPHAM/SANPHAM_CHITIETPN" />
       <nodes>
         <classShapeMoniker Id="9605b4ec-6511-46be-9f65-0df78ea213bb" />
         <classShapeMoniker Id="8d3a9530-9fb0-4935-acac-7acb96d5ec58" />
-      </nodes>
-    </associationConnector>
-    <classShape Id="51039ce8-7eb2-4ca7-a6d2-49180028a34b" absoluteBounds="3.875, 2.125, 2, 1.7708968098958331">
-      <DataClassMoniker Name="/QlyMyPhamDataContext/PHIEUNHAP" />
-      <nestedChildShapes>
-        <elementListCompartment Id="9695ea5b-728b-4db4-a752-3989c1dbca3f" absoluteBounds="3.89, 2.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(3.875 : 2.4125); (3.46875175 : 2.4125); (3.46875175 : 3)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/QlyMyPhamDataContext/PHIEUNHAP/PHIEUNHAP_CHITIETPN" />
-      <nodes>
-        <classShapeMoniker Id="51039ce8-7eb2-4ca7-a6d2-49180028a34b" />
-        <classShapeMoniker Id="8d3a9530-9fb0-4935-acac-7acb96d5ec58" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(4.375 : 1.69399251302083); (4.375 : 2.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/QlyMyPhamDataContext/NHANVIEN/NHANVIEN_PHIEUNHAP" />
-      <nodes>
-        <classShapeMoniker Id="f89fea9a-d89d-4874-82fb-b2fc79db24da" />
-        <classShapeMoniker Id="51039ce8-7eb2-4ca7-a6d2-49180028a34b" />
       </nodes>
     </associationConnector>
     <classShape Id="a44ac216-4434-430b-bdc9-409ba8708c00" absoluteBounds="1.625, 3.375, 2, 1.5785953776041666">
@@ -71,6 +51,26 @@
       <nodes>
         <classShapeMoniker Id="9605b4ec-6511-46be-9f65-0df78ea213bb" />
         <classShapeMoniker Id="a44ac216-4434-430b-bdc9-409ba8708c00" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3095625d-44dc-4e90-8def-7b2ab76a445d" absoluteBounds="5.625, 2.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/QlyMyPhamDataContext/PHIEUNHAP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="53235ce9-957b-49e3-ac51-b1b022e3ccbe" absoluteBounds="5.64, 2.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.625 : 3.21874975); (4.125 : 3.21874975)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QlyMyPhamDataContext/PHIEUNHAP/PHIEUNHAP_CHITIETPN" />
+      <nodes>
+        <classShapeMoniker Id="3095625d-44dc-4e90-8def-7b2ab76a445d" />
+        <classShapeMoniker Id="8d3a9530-9fb0-4935-acac-7acb96d5ec58" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.875 : 1.09699625651042); (6.625 : 1.09699625651042); (6.625 : 2.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QlyMyPhamDataContext/NHANVIEN/NHANVIEN_PHIEUNHAP" />
+      <nodes>
+        <classShapeMoniker Id="f89fea9a-d89d-4874-82fb-b2fc79db24da" />
+        <classShapeMoniker Id="3095625d-44dc-4e90-8def-7b2ab76a445d" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

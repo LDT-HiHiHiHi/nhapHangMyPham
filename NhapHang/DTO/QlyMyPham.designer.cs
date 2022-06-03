@@ -42,12 +42,12 @@ namespace DTO
     partial void InsertCHITIETPN(CHITIETPN instance);
     partial void UpdateCHITIETPN(CHITIETPN instance);
     partial void DeleteCHITIETPN(CHITIETPN instance);
-    partial void InsertPHIEUNHAP(PHIEUNHAP instance);
-    partial void UpdatePHIEUNHAP(PHIEUNHAP instance);
-    partial void DeletePHIEUNHAP(PHIEUNHAP instance);
     partial void InsertDONGIA(DONGIA instance);
     partial void UpdateDONGIA(DONGIA instance);
     partial void DeleteDONGIA(DONGIA instance);
+    partial void InsertPHIEUNHAP(PHIEUNHAP instance);
+    partial void UpdatePHIEUNHAP(PHIEUNHAP instance);
+    partial void DeletePHIEUNHAP(PHIEUNHAP instance);
     #endregion
 		
 		public QlyMyPhamDataContext() : 
@@ -112,19 +112,19 @@ namespace DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<PHIEUNHAP> PHIEUNHAPs
-		{
-			get
-			{
-				return this.GetTable<PHIEUNHAP>();
-			}
-		}
-		
 		public System.Data.Linq.Table<DONGIA> DONGIAs
 		{
 			get
 			{
 				return this.GetTable<DONGIA>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PHIEUNHAP> PHIEUNHAPs
+		{
+			get
+			{
+				return this.GetTable<PHIEUNHAP>();
 			}
 		}
 	}
@@ -924,6 +924,181 @@ namespace DTO
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DONGIA")]
+	public partial class DONGIA : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _ID_SP;
+		
+		private System.Nullable<double> _GIA;
+		
+		private System.Nullable<System.DateTime> _NGCAPNHAT;
+		
+		private EntityRef<SANPHAM> _SANPHAM;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnID_SPChanging(string value);
+    partial void OnID_SPChanged();
+    partial void OnGIAChanging(System.Nullable<double> value);
+    partial void OnGIAChanged();
+    partial void OnNGCAPNHATChanging(System.Nullable<System.DateTime> value);
+    partial void OnNGCAPNHATChanged();
+    #endregion
+		
+		public DONGIA()
+		{
+			this._SANPHAM = default(EntityRef<SANPHAM>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_SP", DbType="VarChar(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string ID_SP
+		{
+			get
+			{
+				return this._ID_SP;
+			}
+			set
+			{
+				if ((this._ID_SP != value))
+				{
+					if (this._SANPHAM.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnID_SPChanging(value);
+					this.SendPropertyChanging();
+					this._ID_SP = value;
+					this.SendPropertyChanged("ID_SP");
+					this.OnID_SPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GIA", DbType="Float")]
+		public System.Nullable<double> GIA
+		{
+			get
+			{
+				return this._GIA;
+			}
+			set
+			{
+				if ((this._GIA != value))
+				{
+					this.OnGIAChanging(value);
+					this.SendPropertyChanging();
+					this._GIA = value;
+					this.SendPropertyChanged("GIA");
+					this.OnGIAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGCAPNHAT", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NGCAPNHAT
+		{
+			get
+			{
+				return this._NGCAPNHAT;
+			}
+			set
+			{
+				if ((this._NGCAPNHAT != value))
+				{
+					this.OnNGCAPNHATChanging(value);
+					this.SendPropertyChanging();
+					this._NGCAPNHAT = value;
+					this.SendPropertyChanged("NGCAPNHAT");
+					this.OnNGCAPNHATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SANPHAM_DONGIA", Storage="_SANPHAM", ThisKey="ID_SP", OtherKey="ID", IsForeignKey=true)]
+		public SANPHAM SANPHAM
+		{
+			get
+			{
+				return this._SANPHAM.Entity;
+			}
+			set
+			{
+				SANPHAM previousValue = this._SANPHAM.Entity;
+				if (((previousValue != value) 
+							|| (this._SANPHAM.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SANPHAM.Entity = null;
+						previousValue.DONGIAs.Remove(this);
+					}
+					this._SANPHAM.Entity = value;
+					if ((value != null))
+					{
+						value.DONGIAs.Add(this);
+						this._ID_SP = value.ID;
+					}
+					else
+					{
+						this._ID_SP = default(string);
+					}
+					this.SendPropertyChanged("SANPHAM");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PHIEUNHAP")]
 	public partial class PHIEUNHAP : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1148,181 +1323,6 @@ namespace DTO
 		{
 			this.SendPropertyChanging();
 			entity.PHIEUNHAP = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DONGIA")]
-	public partial class DONGIA : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _ID_SP;
-		
-		private System.Nullable<double> _GIA;
-		
-		private System.Nullable<System.DateTime> _NGCAPNHAT;
-		
-		private EntityRef<SANPHAM> _SANPHAM;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnID_SPChanging(string value);
-    partial void OnID_SPChanged();
-    partial void OnGIAChanging(System.Nullable<double> value);
-    partial void OnGIAChanged();
-    partial void OnNGCAPNHATChanging(System.Nullable<System.DateTime> value);
-    partial void OnNGCAPNHATChanged();
-    #endregion
-		
-		public DONGIA()
-		{
-			this._SANPHAM = default(EntityRef<SANPHAM>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_SP", DbType="VarChar(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string ID_SP
-		{
-			get
-			{
-				return this._ID_SP;
-			}
-			set
-			{
-				if ((this._ID_SP != value))
-				{
-					if (this._SANPHAM.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnID_SPChanging(value);
-					this.SendPropertyChanging();
-					this._ID_SP = value;
-					this.SendPropertyChanged("ID_SP");
-					this.OnID_SPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GIA", DbType="Float")]
-		public System.Nullable<double> GIA
-		{
-			get
-			{
-				return this._GIA;
-			}
-			set
-			{
-				if ((this._GIA != value))
-				{
-					this.OnGIAChanging(value);
-					this.SendPropertyChanging();
-					this._GIA = value;
-					this.SendPropertyChanged("GIA");
-					this.OnGIAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGCAPNHAT", DbType="DateTime")]
-		public System.Nullable<System.DateTime> NGCAPNHAT
-		{
-			get
-			{
-				return this._NGCAPNHAT;
-			}
-			set
-			{
-				if ((this._NGCAPNHAT != value))
-				{
-					this.OnNGCAPNHATChanging(value);
-					this.SendPropertyChanging();
-					this._NGCAPNHAT = value;
-					this.SendPropertyChanged("NGCAPNHAT");
-					this.OnNGCAPNHATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SANPHAM_DONGIA", Storage="_SANPHAM", ThisKey="ID_SP", OtherKey="ID", IsForeignKey=true)]
-		public SANPHAM SANPHAM
-		{
-			get
-			{
-				return this._SANPHAM.Entity;
-			}
-			set
-			{
-				SANPHAM previousValue = this._SANPHAM.Entity;
-				if (((previousValue != value) 
-							|| (this._SANPHAM.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._SANPHAM.Entity = null;
-						previousValue.DONGIAs.Remove(this);
-					}
-					this._SANPHAM.Entity = value;
-					if ((value != null))
-					{
-						value.DONGIAs.Add(this);
-						this._ID_SP = value.ID;
-					}
-					else
-					{
-						this._ID_SP = default(string);
-					}
-					this.SendPropertyChanged("SANPHAM");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 }

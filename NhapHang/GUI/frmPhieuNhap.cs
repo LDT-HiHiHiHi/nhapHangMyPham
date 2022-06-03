@@ -24,6 +24,7 @@ namespace GUI
         {
             dgvPhieuNhap.DataSource = bus_pn.getList_PN();
             dgvPhieuNhap.Columns["THANHTIEN"].DefaultCellStyle.Format = "#,##0";
+            dgvPhieuNhap.Columns["THOIGIAN"].DefaultCellStyle.Format = "%h\\:%m\\:%s";
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -44,7 +45,7 @@ namespace GUI
                 btnXoa.Enabled = false;
                 return;
             }
-            Program.AlertMessage("Đã xảy ra lỗi");
+            Program.AlertMessage("Đã xảy ra lỗi khi xóa");
         }
 
         private void dgvPhieuNhap_CellClick(object sender, DataGridViewCellEventArgs e)

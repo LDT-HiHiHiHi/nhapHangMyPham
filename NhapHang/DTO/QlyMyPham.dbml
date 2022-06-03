@@ -40,6 +40,15 @@
       <Association Name="PHIEUNHAP_CHITIETPN" Member="PHIEUNHAP" ThisKey="ID_PN" OtherKey="ID" Type="PHIEUNHAP" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.DONGIA" Member="DONGIAs">
+    <Type Name="DONGIA">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_SP" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GIA" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="NGCAPNHAT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="SANPHAM_DONGIA" Member="SANPHAM" ThisKey="ID_SP" OtherKey="ID" Type="SANPHAM" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.PHIEUNHAP" Member="PHIEUNHAPs">
     <Type Name="PHIEUNHAP">
       <Column Name="ID" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -49,15 +58,6 @@
       <Column Name="ID_NV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Association Name="PHIEUNHAP_CHITIETPN" Member="CHITIETPNs" ThisKey="ID" OtherKey="ID_PN" Type="CHITIETPN" />
       <Association Name="NHANVIEN_PHIEUNHAP" Member="NHANVIEN" ThisKey="ID_NV" OtherKey="ID" Type="NHANVIEN" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.DONGIA" Member="DONGIAs">
-    <Type Name="DONGIA">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ID_SP" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="GIA" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="NGCAPNHAT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="SANPHAM_DONGIA" Member="SANPHAM" ThisKey="ID_SP" OtherKey="ID" Type="SANPHAM" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

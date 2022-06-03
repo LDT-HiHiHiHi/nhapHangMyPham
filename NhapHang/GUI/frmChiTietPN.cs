@@ -67,6 +67,7 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            //kiểm tra rỗng
             if (string.IsNullOrEmpty(txtSoLuong.Text))
             {
                 txtSoLuong.Focus();
@@ -99,13 +100,13 @@ namespace GUI
                 {
                     this.frmChiTietPN_Load(sender, e);
                     Program.AlertMessage("Cập nhật thành công", MessageBoxIcon.Information);
-                    //Cập nhật thành tiên
+                    //Cập nhật thành tiên ở bảng phiếu nhập
                     if (!bus_pn.update_ThanhTien(mapn))
                     {
                         Program.AlertMessage("Đã xảy ra lỗi cập nhật thành tiền", MessageBoxIcon.Information);
                         return;
                     }
-
+                    //Cập nhật số lượng sản phẩm ở bảng sản phẩm
                     if (!bus_sp.update_SoLuongSP(masp,(int.Parse(txtSoLuong.Text) - sl)))
                     {
                         Program.AlertMessage("Đã xảy ra lỗi cập nhật số lượng", MessageBoxIcon.Information);
@@ -122,12 +123,13 @@ namespace GUI
             {
                 this.frmChiTietPN_Load(sender, e);
                 Program.AlertMessage("Thêm thành công", MessageBoxIcon.Information);
-                //Cập nhật thành tiền
+                //Cập nhật thành tiên ở bảng phiếu nhập
                 if (!bus_pn.update_ThanhTien(mapn))
                 {
                     Program.AlertMessage("Đã xảy ra lỗi cập nhật thành tiền", MessageBoxIcon.Information);
                     return;
                 }
+                //Cập nhật số lượng sản phẩm ở bảng sản phẩm
                 if (!bus_sp.update_SoLuongSP(masp, int.Parse(txtSoLuong.Text)))
                 {
                     Program.AlertMessage("Đã xảy ra lỗi cập nhật số lượng", MessageBoxIcon.Information);
@@ -148,11 +150,13 @@ namespace GUI
             {
                 btnXoa.Enabled = btnCapNhat.Enabled = false;
                 this.frmChiTietPN_Load(sender, e);
+                //Cập nhật thành tiên ở bảng phiếu nhập
                 if (!bus_pn.update_ThanhTien(mapn))
                 {
                     Program.AlertMessage("Đã xảy ra lỗi cập nhật thành tiền", MessageBoxIcon.Information);
                     return;
                 }
+                //Cập nhật số lượng sản phẩm ở bảng sản phẩm
                 if (!bus_sp.update_SoLuongSP(masp, -int.Parse(txtSoLuong.Text)))
                 {
                     Program.AlertMessage("Đã xảy ra lỗi cập nhật số lượng", MessageBoxIcon.Information);
@@ -189,13 +193,13 @@ namespace GUI
                 btnXoa.Enabled = btnCapNhat.Enabled = false;
                 this.frmChiTietPN_Load(sender, e);
                 Program.AlertMessage("Cập nhật thành công", MessageBoxIcon.Information);
-                //Cập nhật thành tiên
+                //Cập nhật thành tiên ở bảng phiếu nhập
                 if (!bus_pn.update_ThanhTien(mapn))
                 {
                     Program.AlertMessage("Đã xảy ra lỗi cập nhật thành tiền", MessageBoxIcon.Information);
                     return;
                 }
-
+                //Cập nhật số lượng sản phẩm ở bảng sản phẩm
                 if (!bus_sp.update_SoLuongSP(masp, (int.Parse(txtSoLuong.Text) - sl)))
                 {
                     Program.AlertMessage("Đã xảy ra lỗi cập nhật số lượng", MessageBoxIcon.Information);
