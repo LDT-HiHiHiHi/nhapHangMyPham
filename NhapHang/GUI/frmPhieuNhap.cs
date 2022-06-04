@@ -25,6 +25,16 @@ namespace GUI
             dgvPhieuNhap.DataSource = bus_pn.getList_PN();
             dgvPhieuNhap.Columns["THANHTIEN"].DefaultCellStyle.Format = "#,##0";
             dgvPhieuNhap.Columns["THOIGIAN"].DefaultCellStyle.Format = "%h\\:%m\\:%s";
+            this.KeyPreview = true;
+            this.KeyDown +=frmPhieuNhap_KeyDown;
+        }
+
+        private void frmPhieuNhap_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnTimKiem.PerformClick();
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -83,6 +93,5 @@ namespace GUI
             frm.ShowDialog();
             this.frmPhieuNhap_Load(sender, e);
         }
-
     }
 }

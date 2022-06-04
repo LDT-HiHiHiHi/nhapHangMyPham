@@ -98,6 +98,7 @@ namespace GUI
             {
                 if (bus_pn.update_CTPN(pn))
                 {
+                    btnCapNhat.Enabled = btnXoa.Enabled = false;
                     this.frmChiTietPN_Load(sender, e);
                     Program.AlertMessage("Cập nhật thành công", MessageBoxIcon.Information);
                     //Cập nhật thành tiên ở bảng phiếu nhập

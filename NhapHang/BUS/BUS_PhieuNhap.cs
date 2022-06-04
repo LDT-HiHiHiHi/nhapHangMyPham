@@ -42,7 +42,6 @@ namespace BUS
             dt.Columns.Add(new DataColumn("NGTAO", typeof(DateTime)));
             dt.Columns.Add(new DataColumn("THOIGIAN", typeof(TimeSpan)));
             dt.Columns.Add(new DataColumn("DONGIA", typeof(double)));
-            dt.Columns.Add(new DataColumn("TRANGTHAI", typeof(bool)));
 
             dal_pn.timKiemPN(id).ForEach(pn =>
             {

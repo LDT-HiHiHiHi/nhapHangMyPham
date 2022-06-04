@@ -51,5 +51,19 @@ namespace GUI
             }
             Program.AlertMessage("Đã xảy ra lỗi");
         }
+
+        private void frmLapPhieu_Load(object sender, EventArgs e)
+        {
+            this.KeyPreview = true;
+            this.KeyDown +=frmLapPhieu_KeyDown;
+        }
+
+        private void frmLapPhieu_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+               btnXacNhan.PerformClick();
+            }
+        }
     }
 }

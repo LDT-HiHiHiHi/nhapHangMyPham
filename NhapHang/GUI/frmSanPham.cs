@@ -17,12 +17,21 @@ namespace GUI
         public frmSanPham()
         {
             InitializeComponent();
-           
         }
 
         private void frmSanPham_Load(object sender, EventArgs e)
         {
             dgvSanPham.DataSource = bus_sp.getList_SP();
+            this.KeyPreview = true;
+            this.KeyDown +=frmSanPham_KeyDown;
+        }
+
+        private void frmSanPham_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnTimKiem.PerformClick();
+            }
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -36,9 +45,7 @@ namespace GUI
                 dgvSanPham.DataSource = bus_sp.getList_SP();
                 return;
             }
-
             dgvSanPham.DataSource = bus_sp.timKiemSP(txtFind.Text.Trim());
         }
-
     }
 }
