@@ -36,5 +36,14 @@ namespace DTO
             get { return thanhtien; }
             set { thanhtien = value; }
         }
+
+        bool? trangthai;
+
+        public bool? TRANGTHAI
+        {
+            get { return trangthai; }
+            set { trangthai = value; }
+        }
+
     }
 }

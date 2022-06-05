@@ -55,6 +55,7 @@
       <Column Name="NGTAO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="THOIGIAN" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
       <Column Name="THANHTIEN" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TRANGTHAI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="ID_NV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Association Name="PHIEUNHAP_CHITIETPN" Member="CHITIETPNs" ThisKey="ID" OtherKey="ID_PN" Type="CHITIETPN" />
       <Association Name="NHANVIEN_PHIEUNHAP" Member="NHANVIEN" ThisKey="ID_NV" OtherKey="ID" Type="NHANVIEN" IsForeignKey="true" />

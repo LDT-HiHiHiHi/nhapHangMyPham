@@ -16,7 +16,8 @@ namespace DAL
                 ID = t.ID,
                 NGTAO = t.NGTAO,
                 THOIGIAN = t.THOIGIAN,
-                THANHTIEN = t.THANHTIEN
+                THANHTIEN = t.THANHTIEN,
+                TRANGTHAI = t.TRANGTHAI
             }).ToList();
         }
 
@@ -34,6 +35,7 @@ namespace DAL
                 NGTAO = DateTime.Today,
                 THOIGIAN = DateTime.Now.TimeOfDay,
                 THANHTIEN = 0,
+                TRANGTHAI = false
             };
                 qlmp.PHIEUNHAPs.InsertOnSubmit(ob);
                 qlmp.SubmitChanges();
@@ -70,6 +72,7 @@ namespace DAL
                 NGTAO = t.NGTAO,
                 THOIGIAN = t.THOIGIAN,
                 THANHTIEN = t.THANHTIEN,
+                TRANGTHAI = t.TRANGTHAI
             }).ToList();
          }
 
@@ -142,7 +145,30 @@ namespace DAL
             try {
                 PHIEUNHAP pn = qlmp.PHIEUNHAPs.Where(t => t.ID == _mapn).FirstOrDefault();
                 double? thanhTien = qlmp.CHITIETPNs.Where(ct => ct.ID_PN == _mapn).Sum(tt => tt.GIANHAP * tt.SOLUONG);
-                pn.THANHTIEN = thanhTien;
+                if (thanhTien == null)
+                    pn.THANHTIEN = 0;
+                else
+                    pn.THANHTIEN = thanhTien;
+                qlmp.SubmitChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public bool? getTrangThai(string _mapn)
+        {
+            return qlmp.PHIEUNHAPs.Where(pn => pn.ID == _mapn).Select(t=>t.TRANGTHAI).FirstOrDefault();
+        }
+
+        public bool updateTrangThai(string _mapn)
+        {
+            try
+            {
+                PHIEUNHAP pn = qlmp.PHIEUNHAPs.Where(t => t.ID == _mapn).FirstOrDefault();
+                pn.TRANGTHAI = true;
                 qlmp.SubmitChanges();
                 return true;
             }

@@ -622,7 +622,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PW", DbType="VarBinary(50)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PW", DbType="VarBinary(50)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary PW
 		{
 			get
@@ -1113,6 +1113,8 @@ namespace DTO
 		
 		private System.Nullable<double> _THANHTIEN;
 		
+		private System.Nullable<bool> _TRANGTHAI;
+		
 		private string _ID_NV;
 		
 		private EntitySet<CHITIETPN> _CHITIETPNs;
@@ -1131,6 +1133,8 @@ namespace DTO
     partial void OnTHOIGIANChanged();
     partial void OnTHANHTIENChanging(System.Nullable<double> value);
     partial void OnTHANHTIENChanged();
+    partial void OnTRANGTHAIChanging(System.Nullable<bool> value);
+    partial void OnTRANGTHAIChanged();
     partial void OnID_NVChanging(string value);
     partial void OnID_NVChanged();
     #endregion
@@ -1218,6 +1222,26 @@ namespace DTO
 					this._THANHTIEN = value;
 					this.SendPropertyChanged("THANHTIEN");
 					this.OnTHANHTIENChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TRANGTHAI", DbType="Bit")]
+		public System.Nullable<bool> TRANGTHAI
+		{
+			get
+			{
+				return this._TRANGTHAI;
+			}
+			set
+			{
+				if ((this._TRANGTHAI != value))
+				{
+					this.OnTRANGTHAIChanging(value);
+					this.SendPropertyChanging();
+					this._TRANGTHAI = value;
+					this.SendPropertyChanged("TRANGTHAI");
+					this.OnTRANGTHAIChanged();
 				}
 			}
 		}

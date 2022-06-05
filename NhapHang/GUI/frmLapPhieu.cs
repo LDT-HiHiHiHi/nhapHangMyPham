@@ -49,7 +49,7 @@ namespace GUI
                 Program.AlertMessage("Lập phiếu thành công", MessageBoxIcon.Information);
                 return;
             }
-            Program.AlertMessage("Đã xảy ra lỗi");
+            Program.AlertMessage("Đã xảy ra lỗi",MessageBoxIcon.Error);
         }
 
         private void frmLapPhieu_Load(object sender, EventArgs e)

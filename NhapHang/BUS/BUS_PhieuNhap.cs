@@ -42,7 +42,7 @@ namespace BUS
             dt.Columns.Add(new DataColumn("NGTAO", typeof(DateTime)));
             dt.Columns.Add(new DataColumn("THOIGIAN", typeof(TimeSpan)));
             dt.Columns.Add(new DataColumn("DONGIA", typeof(double)));
-
+            dt.Columns.Add(new DataColumn("TRANGTHAI", typeof(bool)));
             dal_pn.timKiemPN(id).ForEach(pn =>
             {
                 DataRow r = dt.NewRow();
@@ -50,7 +50,7 @@ namespace BUS
                 r["NGTAO"] = pn.NGTAO;
                 r["THOIGIAN"] = pn.THOIGIAN;
                 r["DONGIA"] = pn.THANHTIEN;
-
+                r["TRANGTHAI"] = pn.TRANGTHAI;
                 dt.Rows.Add(r);
             });
             return dt;
@@ -89,6 +89,15 @@ namespace BUS
         public int? getSoLuong(string _mapn, string _masp)
         {
             return dal_pn.getSoLuong(_mapn, _masp);
+        }
+
+        public bool? getTrangThai(string _mapn)
+        {
+            return dal_pn.getTrangThai(_mapn);
+        }
+        public bool updateTrangThai(string _mapn)
+        {
+            return dal_pn.updateTrangThai(_mapn);
         }
     }
 }

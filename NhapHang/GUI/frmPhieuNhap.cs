@@ -17,14 +17,15 @@ namespace GUI
         public frmPhieuNhap()
         {
             InitializeComponent();
-            btnXoa.Enabled = false;
         }
 
         private void frmPhieuNhap_Load(object sender, EventArgs e)
         {
+            xóaToolStripMenuItem.Enabled = false;
+            xemChiTiếtToolStripMenuItem.Enabled = false;
             dgvPhieuNhap.DataSource = bus_pn.getList_PN();
             dgvPhieuNhap.Columns["THANHTIEN"].DefaultCellStyle.Format = "#,##0";
-            dgvPhieuNhap.Columns["THOIGIAN"].DefaultCellStyle.Format = "%h\\:%m\\:%s";
+            dgvPhieuNhap.Columns["THOIGIAN"].DefaultCellStyle.Format = "%h\\:%m";
             this.KeyPreview = true;
             this.KeyDown +=frmPhieuNhap_KeyDown;
         }
@@ -43,8 +44,8 @@ namespace GUI
 
             if (!bus_pn.check_ChiTietPN(idpn))
             {
-                Program.AlertMessage("Phiếu nhập có tồn tại chi tiết");
-                btnXoa.Enabled = false;
+                Program.AlertMessage("Phiếu nhập có tồn tại chi tiết",MessageBoxIcon.Warning);
+                xóaToolStripMenuItem.Enabled = true;
                 return;
             }
 
@@ -52,21 +53,30 @@ namespace GUI
             {
                 this.frmPhieuNhap_Load(sender,e);
                 Program.AlertMessage("Xóa thành công", MessageBoxIcon.Information);
-                btnXoa.Enabled = false;
+                xóaToolStripMenuItem.Enabled = true;
                 return;
             }
-            Program.AlertMessage("Đã xảy ra lỗi khi xóa");
+            Program.AlertMessage("Đã xảy ra lỗi khi xóa",MessageBoxIcon.Warning);
         }
 
         private void dgvPhieuNhap_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnXoa.Enabled = true;
+            string idpn = dgvPhieuNhap.CurrentRow.Cells["ID"].Value.ToString();
+            if (bus_pn.getTrangThai(idpn) == true)
+            {
+                xóaToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                xóaToolStripMenuItem.Enabled = true;
+            }
+            xemChiTiếtToolStripMenuItem.Enabled = true;
         }
 
         private void dgvPhieuNhap_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnXoa.Enabled = false;
             mapn = dgvPhieuNhap.CurrentRow.Cells["ID"].Value.ToString();
+            xóaToolStripMenuItem.Enabled = false;
             frmChiTietPN frm = new frmChiTietPN();
             frm.ShowDialog();
             this.frmPhieuNhap_Load(sender, e);
@@ -77,7 +87,7 @@ namespace GUI
             // kiểm tra rỗng
             if (string.IsNullOrEmpty(txtFind.Text.Trim()))
             {
-                Program.AlertMessage("Vui lòng nhập thông tin tìm kiếm");
+                Program.AlertMessage("Vui lòng nhập thông tin tìm kiếm",MessageBoxIcon.Warning);
                 txtFind.Focus();
 
                 dgvPhieuNhap.DataSource = bus_pn.getList_PN();
@@ -90,6 +100,14 @@ namespace GUI
         private void btnLapPhieu_Click(object sender, EventArgs e)
         {
             frmLapPhieu frm = new frmLapPhieu();
+            frm.ShowDialog();
+            this.frmPhieuNhap_Load(sender, e);
+        }
+
+        private void xemChiTiếtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mapn = dgvPhieuNhap.CurrentRow.Cells["ID"].Value.ToString();
+            frmChiTietPN frm = new frmChiTietPN();
             frm.ShowDialog();
             this.frmPhieuNhap_Load(sender, e);
         }
