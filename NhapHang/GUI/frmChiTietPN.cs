@@ -53,11 +53,11 @@ namespace GUI
             cboMaPN.DataSource = bus_pn.getList_PN();
             cboMaPN.DisplayMember = "ID";
             cboMaPN.Text = frmPhieuNhap.MAPN;
-            string tien = string.Format("{0:0,0}", bus_pn.getThanhTien(cboMaPN.Text)) + "đ";
-            if (tien.Equals("00") || tien.Equals("00đ"))
+            string tien = string.Format("{0:0,0}", bus_pn.getThanhTien(cboMaPN.Text));
+            if (tien.Equals("00"))
                 label7.Text = "0đ";
             else
-                label7.Text = tien;
+                label7.Text = tien+"đ";
         }
 
         private void cboTenSP_KeyPress(object sender, KeyPressEventArgs e)
@@ -73,6 +73,7 @@ namespace GUI
         private void cboTenSP_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtDonGia.Text = string.Format("{0:0,0}", bus_sp.getDonGia_SP(bus_sp.getID_Name(cboTenSP.Text)));
+            txtSoLuong.Focus();
         }
 
         private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
@@ -81,11 +82,14 @@ namespace GUI
             {
                 e.Handled = true;
             }
+
         }
 
         private void dgvChiTietPN_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnLuu.Enabled = btnXacNhan.Enabled = true;
+            txtSoLuong.Focus();
+            txtSoLuong.SelectAll();
             if (bus_pn.getTrangThai(cboMaPN.Text) == true)
             {
                 xóaToolStripMenuItem.Enabled = false;
@@ -96,9 +100,10 @@ namespace GUI
             }
             cboMaPN.Text = dgvChiTietPN.CurrentRow.Cells["IDPN"].Value.ToString();
             cboTenSP.Text = dgvChiTietPN.CurrentRow.Cells["IDSP"].Value.ToString();
-            txtDonGia.Text = string.Format("{0:0,0}",dgvChiTietPN.CurrentRow.Cells["DONGIA"].Value.ToString());
+            txtDonGia.Text = string.Format("{0:0,0}", int.Parse(dgvChiTietPN.CurrentRow.Cells["DONGIA"].Value.ToString()));
             txtSoLuong.Text = dgvChiTietPN.CurrentRow.Cells["SOLUONG"].Value.ToString();
         }
+
 
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -155,12 +160,13 @@ namespace GUI
                         return;
                     }
                     txtSoLuong.Text = string.Empty;
-                    txtDonGia.Text = bus_sp.getDonGia_SP(bus_sp.getID_Name(cboTenSP.Text)).ToString();
-                    string tien = string.Format("{0:0,0}", bus_pn.getThanhTien(cboMaPN.Text)) + "đ";
-                    if (tien.Equals("00") || tien.Equals("00đ"))
-                        label7.Text = "0";
+                    txtSoLuong.Focus();
+                    string tien = string.Format("{0:0,0}", bus_pn.getThanhTien(cboMaPN.Text));
+                    if (tien.Equals("00"))
+                        label7.Text = "0đ";
                     else
-                        label7.Text = tien;
+                        label7.Text = tien + "đ";
+                    txtDonGia.Text = bus_sp.getDonGia_SP(bus_sp.getID_Name(cboTenSP.Text)).ToString();
                     return;
                 }
                 Program.AlertMessage("Đã xảy ra lỗi cập nhật", MessageBoxIcon.Error);
@@ -184,12 +190,13 @@ namespace GUI
                     return;
                 }
                 txtSoLuong.Text = string.Empty;
-                txtDonGia.Text = bus_sp.getDonGia_SP(bus_sp.getID_Name(cboTenSP.Text)).ToString();
-                string tien = string.Format("{0:0,0}", bus_pn.getThanhTien(cboMaPN.Text)) + "đ";
-                if (tien.Equals("00") || tien.Equals("00đ"))
+                txtSoLuong.Focus();
+                string tien = string.Format("{0:0,0}", bus_pn.getThanhTien(cboMaPN.Text));
+                if (tien.Equals("00"))
                     label7.Text = "0đ";
                 else
-                    label7.Text = tien;
+                    label7.Text = tien + "đ";
+                txtDonGia.Text = bus_sp.getDonGia_SP(bus_sp.getID_Name(cboTenSP.Text)).ToString();
                 return;
             }
             Program.AlertMessage("Đã xảy ra lỗi khi thêm", MessageBoxIcon.Warning);
@@ -226,12 +233,13 @@ namespace GUI
                         return;
                     }
                     txtSoLuong.Text = string.Empty;
-                    txtDonGia.Text = bus_sp.getDonGia_SP(bus_sp.getID_Name(cboTenSP.Text)).ToString();
-                    string tien = string.Format("{0:0,0}", bus_pn.getThanhTien(cboMaPN.Text)) + "đ";
-                    if (tien.Equals("00") || tien.Equals("00đ"))
+                    txtSoLuong.Focus();
+                    string tien = string.Format("{0:0,0}", bus_pn.getThanhTien(cboMaPN.Text));
+                    if (tien.Equals("00"))
                         label7.Text = "0đ";
                     else
-                        label7.Text = tien;
+                        label7.Text = tien + "đ";
+                    txtDonGia.Text = bus_sp.getDonGia_SP(bus_sp.getID_Name(cboTenSP.Text)).ToString();
                     return;
                 }
                 Program.AlertMessage("Đã xảy ra lỗi khi xóa", MessageBoxIcon.Error);
@@ -241,6 +249,7 @@ namespace GUI
         private void cboMaPN_SelectedIndexChanged(object sender, EventArgs e)
         {
             loadCTPN();
+            txtSoLuong.Text = string.Empty;
         }
 
         public void loadCTPN()
@@ -268,11 +277,12 @@ namespace GUI
                     btnXacNhan.Visible = true;
                 }
             }
-            string tien = string.Format("{0:0,0}", bus_pn.getThanhTien(cboMaPN.Text)) + "đ";
-            if (tien.Equals("00") || tien.Equals("00đ"))
+
+            string tien = string.Format("{0:0,0}", bus_pn.getThanhTien(cboMaPN.Text));
+            if (tien.Equals("00"))
                 label7.Text = "0đ";
             else
-                label7.Text = tien;
+                label7.Text = tien + "đ";
             dgvChiTietPN.DataSource = bus_pn.getList_ChiTietPN(cboMaPN.Text);
         }
 
