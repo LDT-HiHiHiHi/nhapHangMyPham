@@ -30,7 +30,6 @@ C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\bin\Debug\DTO.pdb
 C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\bin\Debug\DAL.pdb
 C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
 C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.frmChiTietPN.resources
-C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.frmLapPhieu.resources
 C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.frmMain.resources
 C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.frmPhieuNhap.resources
 C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.frmSanPham.resources

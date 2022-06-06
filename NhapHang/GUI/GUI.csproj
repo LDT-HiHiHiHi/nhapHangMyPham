@@ -50,12 +50,6 @@
     <Compile Include="frmChiTietPN.Designer.cs">
       <DependentUpon>frmChiTietPN.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLapPhieu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLapPhieu.Designer.cs">
-      <DependentUpon>frmLapPhieu.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,9 +73,6 @@
     <EmbeddedResource Include="frmChiTietPN.resx">
       <DependentUpon>frmChiTietPN.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLapPhieu.resx">
-      <DependentUpon>frmLapPhieu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +90,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -122,6 +114,25 @@
       <Project>{a0d905aa-6a8a-49b4-a865-8eece9343a42}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Iconsoft\button_ok.png" />
+    <Content Include="Iconsoft\fileprint-11 %28Custom%29.png" />
+    <Content Include="Iconsoft\filequickprint.png" />
+    <Content Include="Iconsoft\filesaveas.png" />
+    <Content Include="Iconsoft\printer.png" />
+    <Content Include="Iconsoft\stop.png" />
+    <Content Include="Iconsoft\tsbAddNew.png" />
+    <Content Include="Iconsoft\tsbClose.png" />
+    <Content Include="Iconsoft\tsbDelete.png" />
+    <Content Include="Iconsoft\tsbExportExcel.png" />
+    <Content Include="Iconsoft\tsbPrint.png" />
+    <Content Include="Iconsoft\tsbProcess.png" />
+    <Content Include="Iconsoft\tsbRefresh.png" />
+    <Content Include="Iconsoft\tsbSave.png" />
+    <Content Include="Iconsoft\tsbSearch.png" />
+    <Content Include="Iconsoft\tsbUndo.png" />
+    <Content Include="Iconsoft\unlock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

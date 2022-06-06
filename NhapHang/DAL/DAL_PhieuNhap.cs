@@ -177,5 +177,10 @@ namespace DAL
                 return false;
             }
         }
+
+        public double? getThanhTien(string mapn)
+        {
+            return qlmp.PHIEUNHAPs.Where(t => t.ID == mapn).Select(pn => pn.THANHTIEN).FirstOrDefault();
+        }
     }
 }

@@ -30,14 +30,14 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtFind = new System.Windows.Forms.TextBox();
+            this.btnTimKiem = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MOTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SOLUONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtFind = new System.Windows.Forms.TextBox();
-            this.btnTimKiem = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
             this.SuspendLayout();
@@ -84,46 +84,6 @@
             this.dgvSanPham.Size = new System.Drawing.Size(976, 411);
             this.dgvSanPham.TabIndex = 3;
             // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // TENSP
-            // 
-            this.TENSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TENSP.DataPropertyName = "TENSP";
-            this.TENSP.HeaderText = "TÊN SẢN PHẨM";
-            this.TENSP.Name = "TENSP";
-            this.TENSP.ReadOnly = true;
-            // 
-            // MOTA
-            // 
-            this.MOTA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MOTA.DataPropertyName = "MOTA";
-            this.MOTA.HeaderText = "MÔ TẢ";
-            this.MOTA.Name = "MOTA";
-            this.MOTA.ReadOnly = true;
-            // 
-            // SOLUONG
-            // 
-            this.SOLUONG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SOLUONG.DataPropertyName = "SOLUONG";
-            this.SOLUONG.HeaderText = "SỐ LƯỢNG";
-            this.SOLUONG.Name = "SOLUONG";
-            this.SOLUONG.ReadOnly = true;
-            // 
-            // NSX
-            // 
-            this.NSX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NSX.DataPropertyName = "NSX";
-            this.NSX.HeaderText = "NSX";
-            this.NSX.Name = "NSX";
-            this.NSX.ReadOnly = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -163,6 +123,49 @@
             this.btnTimKiem.UseVisualStyleBackColor = false;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 46;
+            // 
+            // TENSP
+            // 
+            this.TENSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TENSP.DataPropertyName = "TENSP";
+            this.TENSP.HeaderText = "TÊN SẢN PHẨM";
+            this.TENSP.Name = "TENSP";
+            this.TENSP.ReadOnly = true;
+            // 
+            // MOTA
+            // 
+            this.MOTA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MOTA.DataPropertyName = "MOTA";
+            this.MOTA.HeaderText = "MÔ TẢ";
+            this.MOTA.Name = "MOTA";
+            this.MOTA.ReadOnly = true;
+            // 
+            // SOLUONG
+            // 
+            this.SOLUONG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SOLUONG.DataPropertyName = "SOLUONG";
+            this.SOLUONG.HeaderText = "SỐ LƯỢNG";
+            this.SOLUONG.Name = "SOLUONG";
+            this.SOLUONG.ReadOnly = true;
+            this.SOLUONG.Width = 107;
+            // 
+            // NSX
+            // 
+            this.NSX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.NSX.DataPropertyName = "NSX";
+            this.NSX.HeaderText = "NSX";
+            this.NSX.Name = "NSX";
+            this.NSX.ReadOnly = true;
+            this.NSX.Width = 61;
+            // 
             // frmSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -185,14 +188,14 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView dgvSanPham;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtFind;
+        private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn TENSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn MOTA;
         private System.Windows.Forms.DataGridViewTextBoxColumn SOLUONG;
         private System.Windows.Forms.DataGridViewTextBoxColumn NSX;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtFind;
-        private System.Windows.Forms.Button btnTimKiem;
 
 
 

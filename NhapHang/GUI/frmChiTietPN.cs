@@ -25,7 +25,7 @@ namespace GUI
 
         private void frmChiTietPN_Load(object sender, EventArgs e)
         {
-            if (bus_pn.getTrangThai(frmPhieuNhap.mapn) == true)
+            if (bus_pn.getTrangThai(frmPhieuNhap.MAPN) == true)
             {
                 btnLuu.Visible = false;
                 txtSoLuong.Enabled = false;
@@ -36,7 +36,7 @@ namespace GUI
             {
                 label6.Text = "Chưa xác nhận";
                 label6.ForeColor = Color.Red;
-                if (bus_pn.check_ChiTietPN(frmPhieuNhap.mapn))
+                if (bus_pn.check_ChiTietPN(frmPhieuNhap.MAPN))
                 {
                     btnXacNhan.Visible = false;
                 }
@@ -46,13 +46,18 @@ namespace GUI
                 }
             }
            
-            dgvChiTietPN.DataSource = bus_pn.getList_ChiTietPN(frmPhieuNhap.mapn);
+            dgvChiTietPN.DataSource = bus_pn.getList_ChiTietPN(frmPhieuNhap.MAPN);
             cboTenSP.DataSource = bus_sp.getList_TenSP();
             cboTenSP.Text = string.Empty;
 
             cboMaPN.DataSource = bus_pn.getList_PN();
             cboMaPN.DisplayMember = "ID";
-            cboMaPN.Text = frmPhieuNhap.mapn;
+            cboMaPN.Text = frmPhieuNhap.MAPN;
+            string tien = string.Format("{0:0,0}", bus_pn.getThanhTien(cboMaPN.Text)) + "đ";
+            if (tien.Equals("00") || tien.Equals("00đ"))
+                label7.Text = "0đ";
+            else
+                label7.Text = tien;
         }
 
         private void cboTenSP_KeyPress(object sender, KeyPressEventArgs e)
@@ -81,7 +86,14 @@ namespace GUI
         private void dgvChiTietPN_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnLuu.Enabled = btnXacNhan.Enabled = true;
-            xóaToolStripMenuItem.Enabled = true;
+            if (bus_pn.getTrangThai(cboMaPN.Text) == true)
+            {
+                xóaToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                xóaToolStripMenuItem.Enabled = true;
+            }
             cboMaPN.Text = dgvChiTietPN.CurrentRow.Cells["IDPN"].Value.ToString();
             cboTenSP.Text = dgvChiTietPN.CurrentRow.Cells["IDSP"].Value.ToString();
             txtDonGia.Text = string.Format("{0:0,0}",dgvChiTietPN.CurrentRow.Cells["DONGIA"].Value.ToString());
@@ -108,7 +120,7 @@ namespace GUI
             {
                 txtSoLuong.Focus();
                 txtSoLuong.Text = "1";
-                Program.AlertMessage("Số lượng phải lớn hơn 0", MessageBoxIcon.Warning);
+                Program.AlertMessage("Vui lòng nhập số lượng lớn 0", MessageBoxIcon.Warning);
                 return;
             }
 
@@ -144,6 +156,11 @@ namespace GUI
                     }
                     txtSoLuong.Text = string.Empty;
                     txtDonGia.Text = bus_sp.getDonGia_SP(bus_sp.getID_Name(cboTenSP.Text)).ToString();
+                    string tien = string.Format("{0:0,0}", bus_pn.getThanhTien(cboMaPN.Text)) + "đ";
+                    if (tien.Equals("00") || tien.Equals("00đ"))
+                        label7.Text = "0";
+                    else
+                        label7.Text = tien;
                     return;
                 }
                 Program.AlertMessage("Đã xảy ra lỗi cập nhật", MessageBoxIcon.Error);
@@ -168,6 +185,11 @@ namespace GUI
                 }
                 txtSoLuong.Text = string.Empty;
                 txtDonGia.Text = bus_sp.getDonGia_SP(bus_sp.getID_Name(cboTenSP.Text)).ToString();
+                string tien = string.Format("{0:0,0}", bus_pn.getThanhTien(cboMaPN.Text)) + "đ";
+                if (tien.Equals("00") || tien.Equals("00đ"))
+                    label7.Text = "0đ";
+                else
+                    label7.Text = tien;
                 return;
             }
             Program.AlertMessage("Đã xảy ra lỗi khi thêm", MessageBoxIcon.Warning);
@@ -176,31 +198,44 @@ namespace GUI
         private void btnXoa_Click(object sender, EventArgs e)
         {
             string mapn = dgvChiTietPN.CurrentRow.Cells["IDPN"].Value.ToString();
-            string masp = bus_sp.getID_Name(dgvChiTietPN.CurrentRow.Cells["IDSP"].Value.ToString());
+            string tensp = dgvChiTietPN.CurrentRow.Cells["IDSP"].Value.ToString();
+            string masp = bus_sp.getID_Name(tensp);
 
-            if (bus_pn.delete_CTPN(mapn, masp))
+            DialogResult r;
+            r = MessageBox.Show("Bạn có muốn xóa sản phẩm " + tensp, "Thông báo",
+
+            MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+            MessageBoxDefaultButton.Button1);
+
+            if (r == DialogResult.Yes)
             {
-
-                loadCTPN();
-                xóaToolStripMenuItem.Enabled = false;
-                //Cập nhật thành tiên ở bảng phiếu nhập
-                if (!bus_pn.update_ThanhTien(mapn))
+                if (bus_pn.delete_CTPN(mapn, masp))
                 {
-                    Program.AlertMessage("Đã xảy ra lỗi cập nhật thành tiền", MessageBoxIcon.Error);
+                    loadCTPN();
+                    xóaToolStripMenuItem.Enabled = false;
+                    //Cập nhật thành tiên ở bảng phiếu nhập
+                    if (!bus_pn.update_ThanhTien(mapn))
+                    {
+                        Program.AlertMessage("Đã xảy ra lỗi cập nhật thành tiền", MessageBoxIcon.Error);
+                        return;
+                    }
+                    //Cập nhật số lượng sản phẩm ở bảng sản phẩm
+                    if (!bus_sp.update_SoLuongSP(masp, -int.Parse(txtSoLuong.Text)))
+                    {
+                        Program.AlertMessage("Đã xảy ra lỗi cập nhật số lượng", MessageBoxIcon.Error);
+                        return;
+                    }
+                    txtSoLuong.Text = string.Empty;
+                    txtDonGia.Text = bus_sp.getDonGia_SP(bus_sp.getID_Name(cboTenSP.Text)).ToString();
+                    string tien = string.Format("{0:0,0}", bus_pn.getThanhTien(cboMaPN.Text)) + "đ";
+                    if (tien.Equals("00") || tien.Equals("00đ"))
+                        label7.Text = "0đ";
+                    else
+                        label7.Text = tien;
                     return;
                 }
-                //Cập nhật số lượng sản phẩm ở bảng sản phẩm
-                if (!bus_sp.update_SoLuongSP(masp, -int.Parse(txtSoLuong.Text)))
-                {
-                    Program.AlertMessage("Đã xảy ra lỗi cập nhật số lượng", MessageBoxIcon.Error);
-                    return;
-                }
-                txtSoLuong.Text = string.Empty;
-                txtDonGia.Text = bus_sp.getDonGia_SP(bus_sp.getID_Name(cboTenSP.Text)).ToString();
-                Program.AlertMessage("Xóa thành công", MessageBoxIcon.Information);
-                return;
+                Program.AlertMessage("Đã xảy ra lỗi khi xóa", MessageBoxIcon.Error);
             }
-            Program.AlertMessage("Đã xảy ra lỗi khi xóa", MessageBoxIcon.Error);
         }
 
         private void cboMaPN_SelectedIndexChanged(object sender, EventArgs e)
@@ -216,6 +251,7 @@ namespace GUI
                 txtSoLuong.Enabled = false;
                 label6.Text = "Đã xác nhận";
                 label6.ForeColor = Color.Green;
+                xóaToolStripMenuItem.Enabled = false;
             }
             else
             {
@@ -232,14 +268,18 @@ namespace GUI
                     btnXacNhan.Visible = true;
                 }
             }
-            
+            string tien = string.Format("{0:0,0}", bus_pn.getThanhTien(cboMaPN.Text)) + "đ";
+            if (tien.Equals("00") || tien.Equals("00đ"))
+                label7.Text = "0đ";
+            else
+                label7.Text = tien;
             dgvChiTietPN.DataSource = bus_pn.getList_ChiTietPN(cboMaPN.Text);
         }
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
             DialogResult r;
-            r = MessageBox.Show("Bạn có muốn xác nhân phiếu nhập này", "Thông báo",
+            r = MessageBox.Show("Bạn có muốn xác nhân phiếu nhập " + cboMaPN.Text, "Thông báo",
 
             MessageBoxButtons.YesNo, MessageBoxIcon.Question,
             MessageBoxDefaultButton.Button1);
@@ -251,6 +291,23 @@ namespace GUI
                 btnXacNhan.Visible = false;
             }
                
+        }
+
+        private void frmChiTietPN_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (bus_pn.check_ChiTietPN(cboMaPN.Text))
+            {
+                DialogResult r;
+                r = MessageBox.Show("Bạn có muốn lưu không ?", "Thông báo",
+
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button1);
+
+                if (r == DialogResult.No)
+                {
+                    bus_pn.xoaPN(cboMaPN.Text);
+                }
+            }
         }
     }
 }

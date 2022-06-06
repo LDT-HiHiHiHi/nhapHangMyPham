@@ -13,7 +13,9 @@ namespace GUI
     public partial class frmPhieuNhap : Form
     {
         BUS_PhieuNhap bus_pn = new BUS_PhieuNhap();
-        public static string mapn;
+        BUS_TaiKhoan bus_tk = new BUS_TaiKhoan();
+        BUS_NhanVien bus_nv = new BUS_NhanVien();
+        public static string MAPN;
         public frmPhieuNhap()
         {
             InitializeComponent();
@@ -44,19 +46,26 @@ namespace GUI
 
             if (!bus_pn.check_ChiTietPN(idpn))
             {
-                Program.AlertMessage("Phiếu nhập có tồn tại chi tiết",MessageBoxIcon.Warning);
+                Program.AlertMessage("Phiếu nhập "+idpn+" có tồn tại chi tiết",MessageBoxIcon.Warning);
                 xóaToolStripMenuItem.Enabled = true;
                 return;
             }
+            DialogResult r;
+            r = MessageBox.Show("Bạn có chắc chắn muốn xóa phiếu " + idpn + " ?", "Thông báo",
 
-            if (bus_pn.xoaPN(idpn))
+            MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+            MessageBoxDefaultButton.Button1);
+
+            if (r == DialogResult.Yes)
             {
-                this.frmPhieuNhap_Load(sender,e);
-                Program.AlertMessage("Xóa thành công", MessageBoxIcon.Information);
-                xóaToolStripMenuItem.Enabled = true;
-                return;
+                if (bus_pn.xoaPN(idpn))
+                {
+                    this.frmPhieuNhap_Load(sender, e);
+                    xóaToolStripMenuItem.Enabled = true;
+                    return;
+                }
+                Program.AlertMessage("Đã xảy ra lỗi khi xóa", MessageBoxIcon.Warning);
             }
-            Program.AlertMessage("Đã xảy ra lỗi khi xóa",MessageBoxIcon.Warning);
         }
 
         private void dgvPhieuNhap_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -75,7 +84,7 @@ namespace GUI
 
         private void dgvPhieuNhap_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            mapn = dgvPhieuNhap.CurrentRow.Cells["ID"].Value.ToString();
+            MAPN = dgvPhieuNhap.CurrentRow.Cells["ID"].Value.ToString();
             xóaToolStripMenuItem.Enabled = false;
             frmChiTietPN frm = new frmChiTietPN();
             frm.ShowDialog();
@@ -97,16 +106,9 @@ namespace GUI
             dgvPhieuNhap.DataSource = bus_pn.timKiemPN(txtFind.Text.Trim());
         }
 
-        private void btnLapPhieu_Click(object sender, EventArgs e)
-        {
-            frmLapPhieu frm = new frmLapPhieu();
-            frm.ShowDialog();
-            this.frmPhieuNhap_Load(sender, e);
-        }
-
         private void xemChiTiếtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mapn = dgvPhieuNhap.CurrentRow.Cells["ID"].Value.ToString();
+            MAPN = dgvPhieuNhap.CurrentRow.Cells["ID"].Value.ToString();
             frmChiTietPN frm = new frmChiTietPN();
             frm.ShowDialog();
             this.frmPhieuNhap_Load(sender, e);

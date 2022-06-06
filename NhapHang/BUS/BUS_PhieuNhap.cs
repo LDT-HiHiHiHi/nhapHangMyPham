@@ -99,5 +99,10 @@ namespace BUS
         {
             return dal_pn.updateTrangThai(_mapn);
         }
+        public double? getThanhTien(string mapn)
+        {
+
+            return dal_pn.getThanhTien(mapn);
+        }
     }
 }
