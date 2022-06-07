@@ -14,6 +14,7 @@ namespace GUI
     public partial class frmSanPham : Form
     {
         BUS_SanPham bus_sp = new BUS_SanPham();
+        public static string tensp;
         public frmSanPham()
         {
             InitializeComponent();
@@ -51,6 +52,12 @@ namespace GUI
         private void làmMớiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmSanPham_Load(sender, e);
+        }
+
+        private void dgvSanPham_DoubleClick(object sender, EventArgs e)
+        {
+            tensp = dgvSanPham.CurrentRow.Cells["TENSP"].Value.ToString();
+            this.Dispose();
         }
     }
 }

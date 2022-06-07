@@ -321,5 +321,12 @@ namespace GUI
                 }
             }
         }
+
+        private void label4_DoubleClick(object sender, EventArgs e)
+        {
+            frmSanPham frm = new frmSanPham();
+            frm.ShowDialog();
+            cboTenSP.Text = frmSanPham.tensp;
+        }
     }
 }

@@ -26,6 +26,7 @@ namespace GUI
             xóaToolStripMenuItem.Enabled = false;
             xemChiTiếtToolStripMenuItem.Enabled = false;
             dgvPhieuNhap.DataSource = bus_pn.getList_PN();
+            dgvPhieuNhap.Columns["NGTAO"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dgvPhieuNhap.Columns["THANHTIEN"].DefaultCellStyle.Format = "#,##0";
             dgvPhieuNhap.Columns["THOIGIAN"].DefaultCellStyle.Format = "%h\\:%m";
             this.KeyPreview = true;
