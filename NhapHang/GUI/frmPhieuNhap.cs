@@ -16,6 +16,7 @@ namespace GUI
         BUS_TaiKhoan bus_tk = new BUS_TaiKhoan();
         BUS_NhanVien bus_nv = new BUS_NhanVien();
         public static string MAPN;
+
         public frmPhieuNhap()
         {
             InitializeComponent();

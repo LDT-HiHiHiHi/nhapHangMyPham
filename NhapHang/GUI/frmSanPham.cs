@@ -15,6 +15,7 @@ namespace GUI
     {
         BUS_SanPham bus_sp = new BUS_SanPham();
         public static string tensp;
+        public static bool flag_sp = false;
         public frmSanPham()
         {
             InitializeComponent();
@@ -57,7 +58,11 @@ namespace GUI
         private void dgvSanPham_DoubleClick(object sender, EventArgs e)
         {
             tensp = dgvSanPham.CurrentRow.Cells["TENSP"].Value.ToString();
-            this.Dispose();
+            if (flag_sp == true)
+            {
+                flag_sp = false;
+                this.Dispose();
+            }
         }
     }
 }

@@ -15,6 +15,7 @@ namespace GUI
     {
         BUS_PhieuNhap bus_pn = new BUS_PhieuNhap();
         BUS_SanPham bus_sp = new BUS_SanPham();
+        static bool flag_ct = false;
         public frmChiTietPN()
         {
             InitializeComponent();
@@ -32,9 +33,11 @@ namespace GUI
                 label6.Text = "Đã xác nhận";
                 label6.ForeColor = Color.Green;
                 btnXacNhan.Visible = false;
+                flag_ct = true;
             }
             else
             {
+                flag_ct = false;
                 label6.Text = "Chưa xác nhận";
                 label6.ForeColor = Color.Red;
                 if (bus_pn.check_ChiTietPN(frmPhieuNhap.MAPN))
@@ -89,8 +92,8 @@ namespace GUI
         private void dgvChiTietPN_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnLuu.Enabled = btnXacNhan.Enabled = true;
-            txtSoLuong.Focus();
             txtSoLuong.SelectAll();
+            txtSoLuong.Focus();
             if (bus_pn.getTrangThai(cboMaPN.Text) == true)
             {
                 xóaToolStripMenuItem.Enabled = false;
@@ -263,9 +266,11 @@ namespace GUI
                 label6.ForeColor = Color.Green;
                 xóaToolStripMenuItem.Enabled = false;
                 btnXacNhan.Visible = false;
+                flag_ct = true;
             }
             else
             {
+                flag_ct = false;
                 btnLuu.Visible = true;
                 txtSoLuong.Enabled = true;
                 label6.Text = "Chưa xác nhận";
@@ -324,6 +329,9 @@ namespace GUI
 
         private void label4_DoubleClick(object sender, EventArgs e)
         {
+            if (flag_ct == true)
+                return;
+            frmSanPham.flag_sp = true;
             frmSanPham frm = new frmSanPham();
             frm.ShowDialog();
             cboTenSP.Text = frmSanPham.tensp;
