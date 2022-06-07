@@ -41,7 +41,7 @@ namespace BUS
             dt.Columns.Add(new DataColumn("ID", typeof(string)));
             dt.Columns.Add(new DataColumn("NGTAO", typeof(DateTime)));
             dt.Columns.Add(new DataColumn("THOIGIAN", typeof(TimeSpan)));
-            dt.Columns.Add(new DataColumn("DONGIA", typeof(double)));
+            dt.Columns.Add(new DataColumn("DONGIA", typeof(string)));
             dt.Columns.Add(new DataColumn("TRANGTHAI", typeof(bool)));
             dal_pn.timKiemPN(id).ForEach(pn =>
             {
@@ -49,7 +49,7 @@ namespace BUS
                 r["ID"] = pn.ID;
                 r["NGTAO"] = pn.NGTAO;
                 r["THOIGIAN"] = pn.THOIGIAN;
-                r["DONGIA"] = pn.THANHTIEN;
+                r["DONGIA"] = string.Format("{0:0,0}",pn.THANHTIEN);
                 r["TRANGTHAI"] = pn.TRANGTHAI;
                 dt.Rows.Add(r);
             });

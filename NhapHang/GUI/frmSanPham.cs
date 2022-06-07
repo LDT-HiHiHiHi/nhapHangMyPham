@@ -47,5 +47,10 @@ namespace GUI
             }
             dgvSanPham.DataSource = bus_sp.timKiemSP(txtFind.Text.Trim());
         }
+
+        private void làmMớiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSanPham_Load(sender, e);
+        }
     }
 }

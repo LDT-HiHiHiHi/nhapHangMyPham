@@ -31,6 +31,7 @@ namespace GUI
                 txtSoLuong.Enabled = false;
                 label6.Text = "Đã xác nhận";
                 label6.ForeColor = Color.Green;
+                btnXacNhan.Visible = false;
             }
             else
             {
@@ -166,7 +167,7 @@ namespace GUI
                         label7.Text = "0đ";
                     else
                         label7.Text = tien + "đ";
-                    txtDonGia.Text = bus_sp.getDonGia_SP(bus_sp.getID_Name(cboTenSP.Text)).ToString();
+                    txtDonGia.Text = string.Format("{0:0,0}",bus_sp.getDonGia_SP(bus_sp.getID_Name(cboTenSP.Text)));
                     return;
                 }
                 Program.AlertMessage("Đã xảy ra lỗi cập nhật", MessageBoxIcon.Error);
@@ -196,7 +197,7 @@ namespace GUI
                     label7.Text = "0đ";
                 else
                     label7.Text = tien + "đ";
-                txtDonGia.Text = bus_sp.getDonGia_SP(bus_sp.getID_Name(cboTenSP.Text)).ToString();
+                txtDonGia.Text = string.Format("{0:0,0}", bus_sp.getDonGia_SP(bus_sp.getID_Name(cboTenSP.Text)));
                 return;
             }
             Program.AlertMessage("Đã xảy ra lỗi khi thêm", MessageBoxIcon.Warning);
@@ -239,7 +240,7 @@ namespace GUI
                         label7.Text = "0đ";
                     else
                         label7.Text = tien + "đ";
-                    txtDonGia.Text = bus_sp.getDonGia_SP(bus_sp.getID_Name(cboTenSP.Text)).ToString();
+                    txtDonGia.Text = string.Format("{0:0,0}", bus_sp.getDonGia_SP(bus_sp.getID_Name(cboTenSP.Text)));
                     return;
                 }
                 Program.AlertMessage("Đã xảy ra lỗi khi xóa", MessageBoxIcon.Error);
@@ -261,6 +262,7 @@ namespace GUI
                 label6.Text = "Đã xác nhận";
                 label6.ForeColor = Color.Green;
                 xóaToolStripMenuItem.Enabled = false;
+                btnXacNhan.Visible = false;
             }
             else
             {

@@ -50,7 +50,6 @@ namespace GUI
                 return;
             }
             Program.AlertMessage("Đã xảy ra lỗi", MessageBoxIcon.Error);
-            frmPhieuNhap form = new frmPhieuNhap();
         }
     }
 }

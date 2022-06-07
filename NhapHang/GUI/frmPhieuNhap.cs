@@ -102,7 +102,6 @@ namespace GUI
                 dgvPhieuNhap.DataSource = bus_pn.getList_PN();
                 return;
             }
-
             dgvPhieuNhap.DataSource = bus_pn.timKiemPN(txtFind.Text.Trim());
         }
 
@@ -111,6 +110,25 @@ namespace GUI
             MAPN = dgvPhieuNhap.CurrentRow.Cells["ID"].Value.ToString();
             frmChiTietPN frm = new frmChiTietPN();
             frm.ShowDialog();
+            this.frmPhieuNhap_Load(sender, e);
+        }
+
+        private void laToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string mapn = "PN-" + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + "-" + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second;
+            string idnv = bus_nv.getIDNV_ID(bus_tk.getID_Name("admin"));
+            if (bus_pn.lapPhieuNhap(mapn, idnv))
+            {
+                frmPhieuNhap.MAPN = mapn;
+                frmChiTietPN frm = new frmChiTietPN();
+                frm.ShowDialog();
+                return;
+            }
+            Program.AlertMessage("Đã xảy ra lỗi", MessageBoxIcon.Error);
+        }
+
+        private void làmMớiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             this.frmPhieuNhap_Load(sender, e);
         }
     }
