@@ -12,9 +12,85 @@ namespace BUS
     public class BUS_PhieuNhap
     {
         DAL_PhieuNhap dal_pn = new DAL_PhieuNhap();
-        public List<PhieuNhap> getList_PN()
+        public DataTable getList_PN()
         {
-            return dal_pn.getList_PN();
+            DataTable dt = new DataTable();
+            dt.Columns.Add(new DataColumn("ID", typeof(string)));
+            dt.Columns.Add(new DataColumn("NGTAO", typeof(DateTime)));
+            dt.Columns.Add(new DataColumn("THOIGIAN", typeof(TimeSpan)));
+            dt.Columns.Add(new DataColumn("THANHTIEN", typeof(string)));
+            dt.Columns.Add(new DataColumn("TRANGTHAI", typeof(string)));
+            dal_pn.getList_PN().ForEach(pn =>
+            {
+                DataRow r = dt.NewRow();
+                r["ID"] = pn.ID;
+                r["NGTAO"] = pn.NGTAO;
+                r["THOIGIAN"] = pn.THOIGIAN;
+                if (pn.THANHTIEN == 0)
+                    r["THANHTIEN"] = 0;
+                else
+                    r["THANHTIEN"] = string.Format("{0:0,0}", pn.THANHTIEN);
+                if(pn.TRANGTHAI == true)
+                    r["TRANGTHAI"] = "Đã xác nhận";
+                else
+                    r["TRANGTHAI"] = "Chưa xác nhận";
+                dt.Rows.Add(r);
+            });
+            return dt;
+        }
+
+        public DataTable getList_PN_XN()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add(new DataColumn("ID", typeof(string)));
+            dt.Columns.Add(new DataColumn("NGTAO", typeof(DateTime)));
+            dt.Columns.Add(new DataColumn("THOIGIAN", typeof(TimeSpan)));
+            dt.Columns.Add(new DataColumn("THANHTIEN", typeof(string)));
+            dt.Columns.Add(new DataColumn("TRANGTHAI", typeof(string)));
+            dal_pn.getList_PN_XN().ForEach(pn =>
+            {
+                DataRow r = dt.NewRow();
+                r["ID"] = pn.ID;
+                r["NGTAO"] = pn.NGTAO;
+                r["THOIGIAN"] = pn.THOIGIAN;
+                if (pn.THANHTIEN == 0)
+                    r["THANHTIEN"] = 0;
+                else
+                    r["THANHTIEN"] = string.Format("{0:0,0}", pn.THANHTIEN);
+                if (pn.TRANGTHAI == true)
+                    r["TRANGTHAI"] = "Đã xác nhận";
+                else
+                    r["TRANGTHAI"] = "Chưa xác nhận";
+                dt.Rows.Add(r);
+            });
+            return dt;
+        }
+
+        public DataTable getList_PN_CXN()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add(new DataColumn("ID", typeof(string)));
+            dt.Columns.Add(new DataColumn("NGTAO", typeof(DateTime)));
+            dt.Columns.Add(new DataColumn("THOIGIAN", typeof(TimeSpan)));
+            dt.Columns.Add(new DataColumn("THANHTIEN", typeof(string)));
+            dt.Columns.Add(new DataColumn("TRANGTHAI", typeof(string)));
+            dal_pn.getList_PN_CXN().ForEach(pn =>
+            {
+                DataRow r = dt.NewRow();
+                r["ID"] = pn.ID;
+                r["NGTAO"] = pn.NGTAO;
+                r["THOIGIAN"] = pn.THOIGIAN;
+                if (pn.THANHTIEN == 0)
+                    r["THANHTIEN"] = 0;
+                else
+                    r["THANHTIEN"] = string.Format("{0:0,0}", pn.THANHTIEN);
+                if (pn.TRANGTHAI == true)
+                    r["TRANGTHAI"] = "Đã xác nhận";
+                else
+                    r["TRANGTHAI"] = "Chưa xác nhận";
+                dt.Rows.Add(r);
+            });
+            return dt;
         }
 
         public bool lapPhieuNhap(string _idpn, string _idnv)
@@ -41,16 +117,76 @@ namespace BUS
             dt.Columns.Add(new DataColumn("ID", typeof(string)));
             dt.Columns.Add(new DataColumn("NGTAO", typeof(DateTime)));
             dt.Columns.Add(new DataColumn("THOIGIAN", typeof(TimeSpan)));
-            dt.Columns.Add(new DataColumn("DONGIA", typeof(string)));
-            dt.Columns.Add(new DataColumn("TRANGTHAI", typeof(bool)));
+            dt.Columns.Add(new DataColumn("THANHTIEN", typeof(string)));
+            dt.Columns.Add(new DataColumn("TRANGTHAI", typeof(string)));
             dal_pn.timKiemPN(id).ForEach(pn =>
             {
                 DataRow r = dt.NewRow();
                 r["ID"] = pn.ID;
                 r["NGTAO"] = pn.NGTAO;
                 r["THOIGIAN"] = pn.THOIGIAN;
-                r["DONGIA"] = string.Format("{0:0,0}",pn.THANHTIEN);
-                r["TRANGTHAI"] = pn.TRANGTHAI;
+                if (pn.THANHTIEN == 0)
+                    r["THANHTIEN"] = 0;
+                else
+                    r["THANHTIEN"] = string.Format("{0:0,0}", pn.THANHTIEN);
+                if (pn.TRANGTHAI == true)
+                    r["TRANGTHAI"] = "Đã xác nhận";
+                else
+                    r["TRANGTHAI"] = "Chưa xác nhận";
+                dt.Rows.Add(r);
+            });
+            return dt;
+        }
+
+        public DataTable timKiemPN_XN(string id)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add(new DataColumn("ID", typeof(string)));
+            dt.Columns.Add(new DataColumn("NGTAO", typeof(DateTime)));
+            dt.Columns.Add(new DataColumn("THOIGIAN", typeof(TimeSpan)));
+            dt.Columns.Add(new DataColumn("THANHTIEN", typeof(string)));
+            dt.Columns.Add(new DataColumn("TRANGTHAI", typeof(string)));
+            dal_pn.timKiemPN_XN(id).ForEach(pn =>
+            {
+                DataRow r = dt.NewRow();
+                r["ID"] = pn.ID;
+                r["NGTAO"] = pn.NGTAO;
+                r["THOIGIAN"] = pn.THOIGIAN;
+                if (pn.THANHTIEN == 0)
+                    r["THANHTIEN"] = 0;
+                else
+                    r["THANHTIEN"] = string.Format("{0:0,0}", pn.THANHTIEN);
+                if (pn.TRANGTHAI == true)
+                    r["TRANGTHAI"] = "Đã xác nhận";
+                else
+                    r["TRANGTHAI"] = "Chưa xác nhận";
+                dt.Rows.Add(r);
+            });
+            return dt;
+        }
+
+        public DataTable timKiemPN_CXN(string id)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add(new DataColumn("ID", typeof(string)));
+            dt.Columns.Add(new DataColumn("NGTAO", typeof(DateTime)));
+            dt.Columns.Add(new DataColumn("THOIGIAN", typeof(TimeSpan)));
+            dt.Columns.Add(new DataColumn("THANHTIEN", typeof(string)));
+            dt.Columns.Add(new DataColumn("TRANGTHAI", typeof(string)));
+            dal_pn.timKiemPN_CXN(id).ForEach(pn =>
+            {
+                DataRow r = dt.NewRow();
+                r["ID"] = pn.ID;
+                r["NGTAO"] = pn.NGTAO;
+                r["THOIGIAN"] = pn.THOIGIAN;
+                if (pn.THANHTIEN == 0)
+                    r["THANHTIEN"] = 0;
+                else
+                    r["THANHTIEN"] = string.Format("{0:0,0}", pn.THANHTIEN);
+                if (pn.TRANGTHAI == true)
+                    r["TRANGTHAI"] = "Đã xác nhận";
+                else
+                    r["TRANGTHAI"] = "Chưa xác nhận";
                 dt.Rows.Add(r);
             });
             return dt;

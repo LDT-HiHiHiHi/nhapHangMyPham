@@ -16,7 +16,8 @@ namespace GUI
         BUS_TaiKhoan bus_tk = new BUS_TaiKhoan();
         BUS_NhanVien bus_nv = new BUS_NhanVien();
         public static string MAPN;
-
+        bool flag_xn = false;
+        bool flag_cxn = false;
         public frmPhieuNhap()
         {
             InitializeComponent();
@@ -100,8 +101,17 @@ namespace GUI
             {
                 Program.AlertMessage("Vui lòng nhập thông tin tìm kiếm",MessageBoxIcon.Warning);
                 txtFind.Focus();
-
                 dgvPhieuNhap.DataSource = bus_pn.getList_PN();
+                return;
+            }
+            if (flag_xn == true)
+            {
+                dgvPhieuNhap.DataSource = bus_pn.timKiemPN_XN(txtFind.Text.Trim());
+                return;
+            }
+            if (flag_cxn == true)
+            {
+                dgvPhieuNhap.DataSource = bus_pn.timKiemPN_CXN(txtFind.Text.Trim());
                 return;
             }
             dgvPhieuNhap.DataSource = bus_pn.timKiemPN(txtFind.Text.Trim());
@@ -132,6 +142,48 @@ namespace GUI
         private void làmMớiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.frmPhieuNhap_Load(sender, e);
+        }
+
+        private void chưaXácNhậnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (flag_cxn == false)
+            {
+                flag_cxn = true;
+                dgvPhieuNhap.DataSource = bus_pn.getList_PN_CXN();
+                chưaXácNhậnToolStripMenuItem.Checked = flag_cxn;
+                if (flag_xn == true)
+                {
+                    flag_xn = false;
+                    đãXácNhậnToolStripMenuItem.Checked = flag_xn;
+                }
+            }
+            else
+            {
+                flag_cxn = false;
+                dgvPhieuNhap.DataSource = bus_pn.getList_PN();
+                chưaXácNhậnToolStripMenuItem.Checked = flag_cxn;
+            }
+        }
+
+        private void đãXácNhậnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (flag_xn == false)
+            {
+                flag_xn = true;
+                dgvPhieuNhap.DataSource = bus_pn.getList_PN_XN();
+                đãXácNhậnToolStripMenuItem.Checked = flag_xn;
+                if (flag_cxn == true)
+                {
+                    flag_cxn = false;
+                    chưaXácNhậnToolStripMenuItem.Checked = flag_cxn;
+                }
+            }
+            else
+            {
+                flag_xn = false;
+                dgvPhieuNhap.DataSource = bus_pn.getList_PN();
+                đãXácNhậnToolStripMenuItem.Checked = flag_xn;
+            }
         }
     }
 }

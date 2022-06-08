@@ -111,6 +111,7 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            xóaToolStripMenuItem.Enabled = false;
             //kiểm tra rỗng
             if (string.IsNullOrEmpty(txtSoLuong.Text))
             {
@@ -303,7 +304,11 @@ namespace GUI
 
             if (r == DialogResult.Yes)
             {
-                bus_pn.updateTrangThai(cboMaPN.Text);
+                if (!bus_pn.updateTrangThai(cboMaPN.Text))
+                {
+                    Program.AlertMessage("Đã xảy ra lỗi khi xác nhận", MessageBoxIcon.Error);
+                    return;
+                }
                 loadCTPN();
                 btnXacNhan.Visible = false;
             }
@@ -334,7 +339,8 @@ namespace GUI
             frmSanPham.flag_sp = true;
             frmSanPham frm = new frmSanPham();
             frm.ShowDialog();
-            cboTenSP.Text = frmSanPham.tensp;
+            if (!string.IsNullOrEmpty(frmSanPham.tensp))
+                cboTenSP.Text = frmSanPham.tensp;
         }
     }
 }

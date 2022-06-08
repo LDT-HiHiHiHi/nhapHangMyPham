@@ -21,6 +21,30 @@ namespace DAL
             }).ToList();
         }
 
+        public List<PhieuNhap> getList_PN_XN()
+        {
+            return qlmp.PHIEUNHAPs.Where(pn=>pn.TRANGTHAI == true).Select(t => new PhieuNhap
+            {
+                ID = t.ID,
+                NGTAO = t.NGTAO,
+                THOIGIAN = t.THOIGIAN,
+                THANHTIEN = t.THANHTIEN,
+                TRANGTHAI = t.TRANGTHAI
+            }).ToList();
+        }
+
+        public List<PhieuNhap> getList_PN_CXN()
+        {
+            return qlmp.PHIEUNHAPs.Where(pn=>pn.TRANGTHAI == false).Select(t => new PhieuNhap
+            {
+                ID = t.ID,
+                NGTAO = t.NGTAO,
+                THOIGIAN = t.THOIGIAN,
+                THANHTIEN = t.THANHTIEN,
+                TRANGTHAI = t.TRANGTHAI
+            }).ToList();
+        }
+
         public bool check_PK(string _ma)
         {
             return qlmp.PHIEUNHAPs.Where(pn => pn.ID == _ma).Count() == 0; 
@@ -75,6 +99,30 @@ namespace DAL
                 TRANGTHAI = t.TRANGTHAI
             }).ToList();
          }
+
+        public List<PhieuNhap> timKiemPN_XN(string _id)
+        {
+            return qlmp.PHIEUNHAPs.Where(pn => pn.ID.Contains(_id) && pn.TRANGTHAI == true).Select(t => new PhieuNhap
+            {
+                ID = t.ID,
+                NGTAO = t.NGTAO,
+                THOIGIAN = t.THOIGIAN,
+                THANHTIEN = t.THANHTIEN,
+                TRANGTHAI = t.TRANGTHAI
+            }).ToList();
+        }
+
+        public List<PhieuNhap> timKiemPN_CXN(string _id)
+        {
+            return qlmp.PHIEUNHAPs.Where(pn => pn.ID.Contains(_id) && pn.TRANGTHAI == false).Select(t => new PhieuNhap
+            {
+                ID = t.ID,
+                NGTAO = t.NGTAO,
+                THOIGIAN = t.THOIGIAN,
+                THANHTIEN = t.THANHTIEN,
+                TRANGTHAI = t.TRANGTHAI
+            }).ToList();
+        }
 
         public List<ChiTietPN> getList_ChiTietPN(string mapn)
         {

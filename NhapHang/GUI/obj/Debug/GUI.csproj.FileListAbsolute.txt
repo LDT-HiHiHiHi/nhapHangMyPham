@@ -18,8 +18,6 @@ C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\bin\Debug\DAL.pdb
 C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\obj\Debug\GUI.exe
 C:\Users\ad\Documents\Visual Studio 2012\Projects\NhapHang\GUI\obj\Debug\GUI.pdb
 C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\bin\Debug\GUI.exe.config
-C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.exe
-C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.pdb
 C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\bin\Debug\GUI.exe
 C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\bin\Debug\GUI.pdb
 C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\bin\Debug\BUS.dll
@@ -35,3 +33,5 @@ C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.frmPhieuNhap.resou
 C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.frmSanPham.resources
 C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.Properties.Resources.resources
 C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.exe
+C:\Users\ad\Desktop\nhapHangMyPham\NhapHang\GUI\obj\Debug\GUI.pdb
