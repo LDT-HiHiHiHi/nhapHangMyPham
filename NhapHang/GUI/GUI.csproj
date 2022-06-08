@@ -134,9 +134,7 @@
     <Content Include="Iconsoft\tsbUndo.png" />
     <Content Include="Iconsoft\unlock.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>

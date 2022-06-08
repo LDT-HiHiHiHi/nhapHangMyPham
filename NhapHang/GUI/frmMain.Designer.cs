@@ -52,12 +52,14 @@
             this.xemPhiếuNhậpToolStripMenuItem,
             this.xemSảnPhẩmToolStripMenuItem,
             this.lậpPhiếuNhậpToolStripMenuItem});
+            this.chứcNăngToolStripMenuItem.Image = global::GUI.Properties.Resources.tsbProcess;
             this.chứcNăngToolStripMenuItem.Name = "chứcNăngToolStripMenuItem";
-            this.chứcNăngToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
+            this.chứcNăngToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
             this.chứcNăngToolStripMenuItem.Text = "Chức năng";
             // 
             // xemPhiếuNhậpToolStripMenuItem
             // 
+            this.xemPhiếuNhậpToolStripMenuItem.Image = global::GUI.Properties.Resources.fileprint_11__Custom_;
             this.xemPhiếuNhậpToolStripMenuItem.Name = "xemPhiếuNhậpToolStripMenuItem";
             this.xemPhiếuNhậpToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.xemPhiếuNhậpToolStripMenuItem.Text = "Phiếu nhập";
@@ -65,6 +67,7 @@
             // 
             // xemSảnPhẩmToolStripMenuItem
             // 
+            this.xemSảnPhẩmToolStripMenuItem.Image = global::GUI.Properties.Resources.printer;
             this.xemSảnPhẩmToolStripMenuItem.Name = "xemSảnPhẩmToolStripMenuItem";
             this.xemSảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.xemSảnPhẩmToolStripMenuItem.Text = "Xem sản phẩm";
@@ -72,6 +75,7 @@
             // 
             // lậpPhiếuNhậpToolStripMenuItem
             // 
+            this.lậpPhiếuNhậpToolStripMenuItem.Image = global::GUI.Properties.Resources.tsbAddNew;
             this.lậpPhiếuNhậpToolStripMenuItem.Name = "lậpPhiếuNhậpToolStripMenuItem";
             this.lậpPhiếuNhậpToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.lậpPhiếuNhậpToolStripMenuItem.Text = "Lập phiếu nhập";
@@ -87,7 +91,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmMain";
+            this.Text = "Main";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

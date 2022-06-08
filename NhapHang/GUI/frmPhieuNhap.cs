@@ -16,8 +16,8 @@ namespace GUI
         BUS_TaiKhoan bus_tk = new BUS_TaiKhoan();
         BUS_NhanVien bus_nv = new BUS_NhanVien();
         public static string MAPN;
-        bool flag_xn = false;
-        bool flag_cxn = false;
+        public static bool flag_xn = false;
+        public static bool flag_cxn = false;
         public frmPhieuNhap()
         {
             InitializeComponent();
@@ -27,7 +27,15 @@ namespace GUI
         {
             xóaToolStripMenuItem.Enabled = false;
             xemChiTiếtToolStripMenuItem.Enabled = false;
-            dgvPhieuNhap.DataSource = bus_pn.getList_PN();
+            if (flag_xn == true)
+                dgvPhieuNhap.DataSource = bus_pn.getList_PN_XN();
+            else
+            {
+                if (flag_cxn == true)
+                    dgvPhieuNhap.DataSource = bus_pn.getList_PN_CXN();
+                else
+                    dgvPhieuNhap.DataSource = bus_pn.getList_PN();
+            }
             dgvPhieuNhap.Columns["NGTAO"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dgvPhieuNhap.Columns["THANHTIEN"].DefaultCellStyle.Format = "#,##0";
             dgvPhieuNhap.Columns["THOIGIAN"].DefaultCellStyle.Format = "%h\\:%m";

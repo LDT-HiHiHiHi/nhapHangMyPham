@@ -195,7 +195,7 @@
             this.MinimumSize = new System.Drawing.Size(800, 300);
             this.Name = "frmSanPham";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmSanPham";
+            this.Text = "Sản phẩm";
             this.Load += new System.EventHandler(this.frmSanPham_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

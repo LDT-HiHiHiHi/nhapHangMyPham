@@ -91,21 +91,24 @@ namespace GUI
 
         private void dgvChiTietPN_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnLuu.Enabled = btnXacNhan.Enabled = true;
-            txtSoLuong.SelectAll();
-            txtSoLuong.Focus();
-            if (bus_pn.getTrangThai(cboMaPN.Text) == true)
-            {
-                xóaToolStripMenuItem.Enabled = false;
-            }
-            else
-            {
-                xóaToolStripMenuItem.Enabled = true;
-            }
-            cboMaPN.Text = dgvChiTietPN.CurrentRow.Cells["IDPN"].Value.ToString();
-            cboTenSP.Text = dgvChiTietPN.CurrentRow.Cells["IDSP"].Value.ToString();
-            txtDonGia.Text = string.Format("{0:0,0}", int.Parse(dgvChiTietPN.CurrentRow.Cells["DONGIA"].Value.ToString()));
-            txtSoLuong.Text = dgvChiTietPN.CurrentRow.Cells["SOLUONG"].Value.ToString();
+                btnLuu.Enabled = btnXacNhan.Enabled = true;
+                txtSoLuong.SelectAll();
+                txtSoLuong.Focus();
+                if (bus_pn.getTrangThai(cboMaPN.Text) == true)
+                {
+                    xóaToolStripMenuItem.Enabled = false;
+                }
+                else
+                {
+                    xóaToolStripMenuItem.Enabled = true;
+                }
+                if (!bus_pn.check_ChiTietPN(cboMaPN.Text))
+                {
+                    cboMaPN.Text = dgvChiTietPN.CurrentRow.Cells["IDPN"].Value.ToString();
+                    cboTenSP.Text = dgvChiTietPN.CurrentRow.Cells["IDSP"].Value.ToString();
+                    txtDonGia.Text = string.Format("{0:0,0}", int.Parse(dgvChiTietPN.CurrentRow.Cells["DONGIA"].Value.ToString()));
+                    txtSoLuong.Text = dgvChiTietPN.CurrentRow.Cells["SOLUONG"].Value.ToString();
+                }
         }
 
 

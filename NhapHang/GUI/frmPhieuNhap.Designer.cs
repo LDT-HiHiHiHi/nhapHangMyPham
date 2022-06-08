@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnTimKiem = new System.Windows.Forms.Button();
             this.dgvPhieuNhap = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NGTAO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,8 +39,6 @@
             this.THANHTIEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TRANGTHAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.txtFind = new System.Windows.Forms.TextBox();
-            this.btnTimKiem = new System.Windows.Forms.Button();
             this.xemChiTiếtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.laToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +46,7 @@
             this.lọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chưaXácNhậnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đãXácNhậnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtFind = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuNhap)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -85,6 +85,25 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tìm kiếm";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.BackColor = System.Drawing.Color.Blue;
+            this.btnTimKiem.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnTimKiem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.ForeColor = System.Drawing.Color.White;
+            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTimKiem.Location = new System.Drawing.Point(647, 3);
+            this.btnTimKiem.MinimumSize = new System.Drawing.Size(110, 32);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(119, 32);
+            this.btnTimKiem.TabIndex = 2;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // dgvPhieuNhap
             // 
@@ -134,7 +153,7 @@
             this.THOIGIAN.HeaderText = "THỜI GIAN";
             this.THOIGIAN.Name = "THOIGIAN";
             this.THOIGIAN.ReadOnly = true;
-            this.THOIGIAN.Width = 103;
+            this.THOIGIAN.Width = 95;
             // 
             // THANHTIEN
             // 
@@ -151,7 +170,7 @@
             this.TRANGTHAI.HeaderText = "TRẠNG THÁI";
             this.TRANGTHAI.Name = "TRANGTHAI";
             this.TRANGTHAI.ReadOnly = true;
-            this.TRANGTHAI.Width = 117;
+            this.TRANGTHAI.Width = 107;
             // 
             // contextMenuStrip1
             // 
@@ -162,36 +181,7 @@
             this.làmMớiToolStripMenuItem,
             this.lọcToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 146);
-            // 
-            // txtFind
-            // 
-            this.txtFind.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFind.Location = new System.Drawing.Point(325, 3);
-            this.txtFind.MinimumSize = new System.Drawing.Size(287, 25);
-            this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(316, 27);
-            this.txtFind.TabIndex = 1;
-            // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.BackColor = System.Drawing.Color.Blue;
-            this.btnTimKiem.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTimKiem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.ForeColor = System.Drawing.Color.White;
-            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTimKiem.Location = new System.Drawing.Point(647, 3);
-            this.btnTimKiem.MinimumSize = new System.Drawing.Size(110, 32);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(119, 32);
-            this.btnTimKiem.TabIndex = 2;
-            this.btnTimKiem.Text = "Tìm kiếm";
-            this.btnTimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTimKiem.UseVisualStyleBackColor = false;
-            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 124);
             // 
             // xemChiTiếtToolStripMenuItem
             // 
@@ -249,6 +239,16 @@
             this.đãXácNhậnToolStripMenuItem.Text = "Đã xác nhận";
             this.đãXácNhậnToolStripMenuItem.Click += new System.EventHandler(this.đãXácNhậnToolStripMenuItem_Click);
             // 
+            // txtFind
+            // 
+            this.txtFind.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFind.Location = new System.Drawing.Point(325, 3);
+            this.txtFind.MinimumSize = new System.Drawing.Size(287, 25);
+            this.txtFind.Name = "txtFind";
+            this.txtFind.Size = new System.Drawing.Size(316, 27);
+            this.txtFind.TabIndex = 1;
+            // 
             // frmPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -258,7 +258,7 @@
             this.MinimumSize = new System.Drawing.Size(800, 300);
             this.Name = "frmPhieuNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmPhieuNhap";
+            this.Text = "Phiếu nhập";
             this.Load += new System.EventHandler(this.frmPhieuNhap_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
