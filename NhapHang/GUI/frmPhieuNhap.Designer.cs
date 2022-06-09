@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnTimKiem = new System.Windows.Forms.Button();
             this.dgvPhieuNhap = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NGTAO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +38,8 @@
             this.THANHTIEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TRANGTHAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txtFind = new System.Windows.Forms.TextBox();
+            this.btnTimKiem = new System.Windows.Forms.Button();
             this.xemChiTiếtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.laToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +47,6 @@
             this.lọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chưaXácNhậnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đãXácNhậnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtFind = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuNhap)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -79,31 +79,12 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(220, 0);
+            this.label1.Location = new System.Drawing.Point(107, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 38);
+            this.label1.Size = new System.Drawing.Size(212, 38);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Tìm kiếm";
+            this.label1.Text = "Tìm kiếm phiếu nhập";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.BackColor = System.Drawing.Color.Blue;
-            this.btnTimKiem.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTimKiem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.ForeColor = System.Drawing.Color.White;
-            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTimKiem.Location = new System.Drawing.Point(647, 3);
-            this.btnTimKiem.MinimumSize = new System.Drawing.Size(110, 32);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(119, 32);
-            this.btnTimKiem.TabIndex = 2;
-            this.btnTimKiem.Text = "Tìm kiếm";
-            this.btnTimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTimKiem.UseVisualStyleBackColor = false;
-            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // dgvPhieuNhap
             // 
@@ -153,7 +134,7 @@
             this.THOIGIAN.HeaderText = "THỜI GIAN";
             this.THOIGIAN.Name = "THOIGIAN";
             this.THOIGIAN.ReadOnly = true;
-            this.THOIGIAN.Width = 95;
+            this.THOIGIAN.Width = 103;
             // 
             // THANHTIEN
             // 
@@ -183,9 +164,40 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(181, 124);
             // 
+            // txtFind
+            // 
+            this.txtFind.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFind.Location = new System.Drawing.Point(325, 3);
+            this.txtFind.MinimumSize = new System.Drawing.Size(287, 25);
+            this.txtFind.Name = "txtFind";
+            this.txtFind.Size = new System.Drawing.Size(316, 27);
+            this.txtFind.TabIndex = 1;
+            // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.BackColor = System.Drawing.Color.Blue;
+            this.btnTimKiem.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnTimKiem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.ForeColor = System.Drawing.Color.White;
+            this.btnTimKiem.Image = global::GUI.Properties.Resources.search__1_;
+            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTimKiem.Location = new System.Drawing.Point(647, 3);
+            this.btnTimKiem.MinimumSize = new System.Drawing.Size(110, 32);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(119, 32);
+            this.btnTimKiem.TabIndex = 2;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
             // xemChiTiếtToolStripMenuItem
             // 
-            this.xemChiTiếtToolStripMenuItem.Image = global::GUI.Properties.Resources.fileprint_11__Custom_;
+            this.xemChiTiếtToolStripMenuItem.Image = global::GUI.Properties.Resources.info;
             this.xemChiTiếtToolStripMenuItem.Name = "xemChiTiếtToolStripMenuItem";
             this.xemChiTiếtToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.xemChiTiếtToolStripMenuItem.Text = "Xem chi tiết";
@@ -193,7 +205,7 @@
             // 
             // xóaToolStripMenuItem
             // 
-            this.xóaToolStripMenuItem.Image = global::GUI.Properties.Resources.stop;
+            this.xóaToolStripMenuItem.Image = global::GUI.Properties.Resources.remove__1_;
             this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
             this.xóaToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.xóaToolStripMenuItem.Text = "Xóa";
@@ -201,7 +213,7 @@
             // 
             // laToolStripMenuItem
             // 
-            this.laToolStripMenuItem.Image = global::GUI.Properties.Resources.tsbAddNew;
+            this.laToolStripMenuItem.Image = global::GUI.Properties.Resources.add__2_;
             this.laToolStripMenuItem.Name = "laToolStripMenuItem";
             this.laToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.laToolStripMenuItem.Text = "Lập phiếu nhập";
@@ -209,7 +221,7 @@
             // 
             // làmMớiToolStripMenuItem
             // 
-            this.làmMớiToolStripMenuItem.Image = global::GUI.Properties.Resources.tsbRefresh;
+            this.làmMớiToolStripMenuItem.Image = global::GUI.Properties.Resources.refresh_button;
             this.làmMớiToolStripMenuItem.Name = "làmMớiToolStripMenuItem";
             this.làmMớiToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.làmMớiToolStripMenuItem.Text = "Làm mới";
@@ -220,7 +232,7 @@
             this.lọcToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.chưaXácNhậnToolStripMenuItem,
             this.đãXácNhậnToolStripMenuItem});
-            this.lọcToolStripMenuItem.Image = global::GUI.Properties.Resources.tsbProcess;
+            this.lọcToolStripMenuItem.Image = global::GUI.Properties.Resources.filter;
             this.lọcToolStripMenuItem.Name = "lọcToolStripMenuItem";
             this.lọcToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.lọcToolStripMenuItem.Text = "Lọc";
@@ -238,16 +250,6 @@
             this.đãXácNhậnToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
             this.đãXácNhậnToolStripMenuItem.Text = "Đã xác nhận";
             this.đãXácNhậnToolStripMenuItem.Click += new System.EventHandler(this.đãXácNhậnToolStripMenuItem_Click);
-            // 
-            // txtFind
-            // 
-            this.txtFind.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFind.Location = new System.Drawing.Point(325, 3);
-            this.txtFind.MinimumSize = new System.Drawing.Size(287, 25);
-            this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(316, 27);
-            this.txtFind.TabIndex = 1;
             // 
             // frmPhieuNhap
             // 

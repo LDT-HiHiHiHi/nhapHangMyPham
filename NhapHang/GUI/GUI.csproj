@@ -116,11 +116,24 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Iconsoft\box.png" />
+    <None Include="Iconsoft\add.png" />
+    <None Include="Iconsoft\add %281%29.png" />
+    <None Include="Iconsoft\add %282%29.png" />
     <Content Include="Iconsoft\button_ok.png" />
+    <None Include="Iconsoft\coupon.png" />
     <Content Include="Iconsoft\fileprint-11 %28Custom%29.png" />
     <Content Include="Iconsoft\filequickprint.png" />
     <Content Include="Iconsoft\filesaveas.png" />
+    <None Include="Iconsoft\function.png" />
+    <None Include="Iconsoft\info.png" />
+    <None Include="Iconsoft\filter.png" />
+    <None Include="Iconsoft\main-menu.png" />
     <Content Include="Iconsoft\printer.png" />
+    <None Include="Iconsoft\refresh-button.png" />
+    <None Include="Iconsoft\search.png" />
+    <None Include="Iconsoft\search %281%29.png" />
+    <None Include="Iconsoft\remove %281%29.png" />
     <Content Include="Iconsoft\stop.png" />
     <Content Include="Iconsoft\tsbAddNew.png" />
     <Content Include="Iconsoft\tsbClose.png" />

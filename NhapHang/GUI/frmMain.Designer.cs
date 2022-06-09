@@ -52,14 +52,14 @@
             this.xemPhiếuNhậpToolStripMenuItem,
             this.xemSảnPhẩmToolStripMenuItem,
             this.lậpPhiếuNhậpToolStripMenuItem});
-            this.chứcNăngToolStripMenuItem.Image = global::GUI.Properties.Resources.tsbProcess;
+            this.chứcNăngToolStripMenuItem.Image = global::GUI.Properties.Resources.main_menu;
             this.chứcNăngToolStripMenuItem.Name = "chứcNăngToolStripMenuItem";
             this.chứcNăngToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
             this.chứcNăngToolStripMenuItem.Text = "Chức năng";
             // 
             // xemPhiếuNhậpToolStripMenuItem
             // 
-            this.xemPhiếuNhậpToolStripMenuItem.Image = global::GUI.Properties.Resources.fileprint_11__Custom_;
+            this.xemPhiếuNhậpToolStripMenuItem.Image = global::GUI.Properties.Resources.coupon;
             this.xemPhiếuNhậpToolStripMenuItem.Name = "xemPhiếuNhậpToolStripMenuItem";
             this.xemPhiếuNhậpToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.xemPhiếuNhậpToolStripMenuItem.Text = "Phiếu nhập";
@@ -67,7 +67,7 @@
             // 
             // xemSảnPhẩmToolStripMenuItem
             // 
-            this.xemSảnPhẩmToolStripMenuItem.Image = global::GUI.Properties.Resources.printer;
+            this.xemSảnPhẩmToolStripMenuItem.Image = global::GUI.Properties.Resources.box;
             this.xemSảnPhẩmToolStripMenuItem.Name = "xemSảnPhẩmToolStripMenuItem";
             this.xemSảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.xemSảnPhẩmToolStripMenuItem.Text = "Xem sản phẩm";
@@ -75,7 +75,7 @@
             // 
             // lậpPhiếuNhậpToolStripMenuItem
             // 
-            this.lậpPhiếuNhậpToolStripMenuItem.Image = global::GUI.Properties.Resources.tsbAddNew;
+            this.lậpPhiếuNhậpToolStripMenuItem.Image = global::GUI.Properties.Resources.add;
             this.lậpPhiếuNhậpToolStripMenuItem.Name = "lậpPhiếuNhậpToolStripMenuItem";
             this.lậpPhiếuNhậpToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.lậpPhiếuNhậpToolStripMenuItem.Text = "Lập phiếu nhập";

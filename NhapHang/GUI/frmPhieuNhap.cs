@@ -72,7 +72,7 @@ namespace GUI
                 if (bus_pn.xoaPN(idpn))
                 {
                     this.frmPhieuNhap_Load(sender, e);
-                    xóaToolStripMenuItem.Enabled = true;
+                    xóaToolStripMenuItem.Enabled = false;
                     return;
                 }
                 Program.AlertMessage("Đã xảy ra lỗi khi xóa", MessageBoxIcon.Warning);
@@ -95,6 +95,7 @@ namespace GUI
 
         private void dgvPhieuNhap_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            xóaToolStripMenuItem.Enabled = false;
             MAPN = dgvPhieuNhap.CurrentRow.Cells["ID"].Value.ToString();
             xóaToolStripMenuItem.Enabled = false;
             frmChiTietPN frm = new frmChiTietPN();
