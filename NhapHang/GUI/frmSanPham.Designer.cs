@@ -144,7 +144,7 @@
             this.SOLUONG.HeaderText = "SỐ LƯỢNG";
             this.SOLUONG.Name = "SOLUONG";
             this.SOLUONG.ReadOnly = true;
-            this.SOLUONG.Width = 107;
+            this.SOLUONG.Width = 98;
             // 
             // NSX
             // 
@@ -160,13 +160,13 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.làmMớiToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(137, 28);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 50);
             // 
             // làmMớiToolStripMenuItem
             // 
-            this.làmMớiToolStripMenuItem.Image = global::GUI.Properties.Resources.tsbRefresh;
+            this.làmMớiToolStripMenuItem.Image = global::GUI.Properties.Resources.refresh_button;
             this.làmMớiToolStripMenuItem.Name = "làmMớiToolStripMenuItem";
-            this.làmMớiToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.làmMớiToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.làmMớiToolStripMenuItem.Text = "Làm mới";
             this.làmMớiToolStripMenuItem.Click += new System.EventHandler(this.làmMớiToolStripMenuItem_Click);
             // 
